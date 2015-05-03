@@ -1,0 +1,380 @@
+{% extends 'default/index.html.twig' %}
+{% block content %}
+        <style type="text/css">
+        .fancybox-wrap {
+            /*width: 55% !important;*/
+        }
+        .fancybox-skin {
+            padding: 0px !important;
+        }
+        </style>
+        <!--~~~~~~~~~~~~~~~~~content~~~~~~~~~~~~~~~~~-->
+
+        <div class="banner banner_empty"> 
+            <div class="banner_content"></div>
+        </div>
+        <div class="tariffs container" id='completedSites'>
+            <div class="">
+                <div class="container">
+                    <!-- Module sites -->
+                    <div class="tariffs container" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="list-unstyled left-menu-sites"  role="tablist">
+                                    <li class="thead col-md-12" style="color:#fff; margin-bottom: 0px;">Бизнес-сайты</li>
+                                    <li class="tbody col-md-12" role="presentation" style="border-left: 1px solid rgba(0,0,0,.1);border-right: 1px solid rgba(0,0,0,.1);border-bottom: 1px solid rgba(0,0,0,.2);height: 60px;cursor: pointer;margin-bottom: 0px; text-align: center;">
+                                        <a href="#buisnessMini" style="border:none; line-height: 60px;" data-toggle='tab'>Готовый(мини)</a>
+                                    </li>
+                                    <li class="tbody col-md-12" role="presentation" style="border-left: 1px solid rgba(0,0,0,.1);border-right: 1px solid rgba(0,0,0,.1);border-bottom: 1px solid rgba(0,0,0,.2);height: 60px;cursor: pointer;margin-bottom: 0px; text-align: center;">
+                                        <a href="#buisnessStandart" style="border:none; line-height: 60px;" data-toggle='tab'>Готовый(стандартный)</a>
+                                    </li>
+                                    <li class="tbody col-md-12" role="presentation" style="border-left: 1px solid rgba(0,0,0,.1);border-right: 1px solid rgba(0,0,0,.1);border-bottom: 1px solid rgba(0,0,0,.2);height: 60px;cursor: pointer;margin-bottom: 0px; text-align: center;">
+                                        <a href="#buisnessExtend" style="border:none; line-height: 60px;" data-toggle='tab'>Готовый(расширенный)</a>
+                                    </li>
+                                    <li class="tbody col-md-12" role="presentation" style="border-left: 1px solid rgba(0,0,0,.1);border-right: 1px solid rgba(0,0,0,.1);border-bottom: 1px solid rgba(0,0,0,.2);height: 60px;cursor: pointer;margin-bottom: 0px; text-align: center;">
+                                        <a href="#buisnessCorp" style="border:none; line-height: 60px;" data-toggle='tab'>Корпоративный</a>
+                                    </li>
+                                    <div class="row">
+                                        <div class="thead col-md-12" style="margin-bottom: 0px;">
+                                            <li style="color:#fff;">Интернет-магазин</li>
+                                        </div>
+                                    </div>
+                                    <li class="tbody col-md-12" role="presentation" style="border-left: 1px solid rgba(0,0,0,.1);border-right: 1px solid rgba(0,0,0,.1);border-bottom: 1px solid rgba(0,0,0,.2);height: 60px;cursor: pointer;margin-bottom: 0px; text-align: center;">
+                                        <a href="#shopWithoutCart" style="border:none; line-height: 60px;" data-toggle='tab'>Каталог без корзины</a>
+                                    </li>
+                                    <li class="tbody col-md-12" role="presentation" style="border-left: 1px solid rgba(0,0,0,.1);border-right: 1px solid rgba(0,0,0,.1);border-bottom: 1px solid rgba(0,0,0,.2);height: 60px;cursor: pointer;margin-bottom: 0px; text-align: center;">
+                                        <a href="#shopWithCart" style="border:none; line-height: 60px;" data-toggle='tab'>Каталог с корзиной</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="tab-content" style="margin-top: -42px;">
+                                    <div class="tab-pane fade in active" id="buisnessMini">
+                                        <div class="description">
+                                            <h2 class="caption">Сайт-визитка:Готовый(мини)</h2>
+                                            <div class="content">
+                                                В готовом варианте – мы предлагаем Вам на выбор несколько вариантов готового дизайна сайта, из которых Вы сможете выбрать понравившийся. Выбранный вариант мы наполняем Вашими материалами и размещаем в сеть. Данный тип сайта подойдет Вам, если нужно в кратчайшее время запустить сайт компании с минимальными затратами на разработку если требования к дизайну не критичны!
+                                            </div>
+                                            <div class="images">
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}' src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="buisnessStandart">
+                                        <div class="description">
+                                            <h2 class="caption">Сайт-визитка:Готовый(стандартный)</h2>
+                                            <div class="content">
+                                                В готовом варианте – мы предлагаем Вам на выбор несколько вариантов готового дизайна сайта, из которых Вы сможете выбрать понравившийся. Выбранный вариант мы наполняем Вашими материалами и размещаем в сеть. Данный тип сайта подойдет Вам, если нужно в кратчайшее время запустить сайт компании с минимальными затратами на разработку если требования к дизайну не критичны!
+                                            </div>
+                                            <div class="images">
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="tab-pane fade" id="buisnessExtend">
+                                        <div class="description">
+                                            <h2 class="caption">Сайт-визитка:Готовый(расширенный)</h2>
+                                            <div class="content">
+                                                В готовом варианте – мы предлагаем Вам на выбор несколько вариантов готового дизайна сайта, из которых Вы сможете выбрать понравившийся. Выбранный вариант мы наполняем Вашими материалами и размещаем в сеть. Данный тип сайта подойдет Вам, если нужно в кратчайшее время запустить сайт компании с минимальными затратами на разработку если требования к дизайну не критичны!
+                                            </div>
+                                            <div class="images">
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class='notpaginated' data-categories="">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-medium' src="{{asset('assets/img/sample-medium.jpg')}}"/>
+                                                </a>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="buisnessCorp">
+                                        <section class="portfolioListing" data-rel-list="app-master-list">
+                                            <nav>
+                                                <ul class="portfolio-filters list-inline list-unstyled">
+                                                    <li><a class="sites-hashtags active" data-category="Корпоративный">#Все</a></li>
+                                                    <li><a class="sites-hashtags" data-category="Корпоративный, Корпоративный адаптивные сайты">#Адаптивные сайты</a></li>
+                                                    <li><a class="sites-hashtags" data-category="Корпоративный, Корпоративный бизнес и финансы">#Бизнес и финансы</a></li>
+                                                </ul>
+                                            </nav>
+                                            <div class="portfolioCarrousel fn-portfolioCarrousel" data-ajust-height="false"></div>
+                                            <div class="portfolioCarrousel_nav_wrapper">
+                                                <a href="#" class="carrousel_prev page-button-disabled" data-page="0" style="float:left;">
+                                                <span class="caption">
+                                                <
+                                                </span>
+                                                </a>
+                                                <div class="portfolioCarrousel_nav"></div>
+                                                <a href="#" class="carrousel_next" data-page="2" style="float:left;">
+                                                <span class="caption">
+                                                >
+                                                </span>
+                                                </a>
+                                            </div>
+                                            <div id="app-master-list" class="hidden" style="display: none;">
+                                                <article class='paginated' data-categories="Корпоративный, Корпоративный адаптивные сайты">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-mini' src="{{asset('assets/img/sample-mini.png')}}"/>
+                                                </a>
+                                                </article>
+                                                <article class="paginated" data-categories="Корпоративный, Корпоративный бизнес и финансы">
+                                                <div class="preview">
+                                                    <a href="#orderSite" class="fancybox dop" title="Заказать сайт" src='{{asset('assets/img/sample-big.jpg')}}'>
+                                                    <img src="{{asset('assets/img/zoom.png')}}" alt="Заказать сайт" title="Заказать сайт">
+                                                    </a>
+                                                </div>
+                                                <a href="#">
+                                                <img class='site-prev-mini' src="{{asset('assets/img/sample-mini.png')}}"/>
+                                                </a>
+                                                </article>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="tab-pane fade" id="shopWithoutCart">
+                                        <section class="portfolioListing" data-rel-list="app-master-list">
+                                            <nav>
+                                                <ul class="portfolio-filters list-inline list-unstyled">
+                                                    <li><a class="sites-hashtags active">#Все</a></li>
+                                                    <li><a class="sites-hashtags" data-category="Адаптивные сайты">#Адаптивные сайты</a></li>
+                                                    <li><a class="sites-hashtags" data-category="Бизнес и финансы">#Бизнес и финансы</a></li>
+                                                </ul>
+                                            </nav>
+                                            <div class="portfolioCarrousel fn-portfolioCarrousel" data-ajust-height="false"></div>
+
+                                            <div class="portfolioCarrousel_nav_wrapper">
+                                                <a href="#" class="carrousel_prev page-button-disabled" data-page="0" style="float:left;">
+                                                <span class="caption">
+                                                <
+                                                </span>
+                                                </a>
+                                                <div class="portfolioCarrousel_nav"></div>
+                                                <a href="#" class="carrousel_next" data-page="2" style="float:left;">
+                                                <span class="caption">
+                                                >
+                                                </span>
+                                                </a>
+                                            </div>
+                                            <div id="app-master-list" class="hidden" style="display: none;">
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="tab-pane fade" id="shopWithCart">
+                                        <section class="portfolioListing" data-rel-list="app-master-list">
+                                            <nav>
+                                                <ul class="portfolio-filters list-inline list-unstyled">
+                                                    <li><a class="sites-hashtags active">#Все</a></li>
+                                                    <li><a class="sites-hashtags" data-category="Адаптивные сайты">#Адаптивные сайты</a></li>
+                                                    <li><a class="sites-hashtags" data-category="Бизнес и финансы">#Бизнес и финансы</a></li>
+                                                </ul>
+                                            </nav>
+                                            <div class="portfolioCarrousel fn-portfolioCarrousel" data-ajust-height="false"></div>
+
+                                            <div class="portfolioCarrousel_nav_wrapper">
+                                                <a href="#" class="carrousel_prev page-button-disabled" data-page="0" style="float:left;">
+                                                <span class="caption">
+                                                <
+                                                </span>
+                                                </a>
+                                                <div class="portfolioCarrousel_nav"></div>
+                                                <a href="#" class="carrousel_next" data-page="2" style="float:left;">
+                                                <span class="caption">
+                                                >
+                                                </span>
+                                                </a>
+                                            </div>
+                                            <div id="app-master-list" class="hidden" style="display: none;">
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end sites -->
+                </div>
+            </div>
+        </div>
+
+        <div id="orderSite" style="display: none;">
+            <div id="screen-wrapper">
+                <img src="img/sample-big.jpg" alt="" id="activeNowSiteItem" class="img-responsive" />
+            </div>
+        </div>
+{% endblock %}
