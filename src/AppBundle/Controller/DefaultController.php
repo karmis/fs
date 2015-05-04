@@ -18,16 +18,16 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-//        $em = $this->getDoctrine()->getManager();
-//        $entities = $em->getRepository('AppBundle:Shop\Category')->findAll();
+        $em = $this->getDoctrine()->getManager();
+        $articles = $em->getRepository('AdminBundle:Article')->findForPath(null,3);
 
         return array(
-            //            'entities' => $entities,
+            'articles' => $articles,
         );
     }
 
     /**
-     * Main page
+     * Contacts
      *
      * @Route("/contacts", name="contact_page")
      * @Method("GET")
@@ -40,7 +40,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Main page
+     * Domains
      *
      * @Route("/domains", name="domains_page")
      * @Method("GET")
@@ -52,7 +52,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Main page
+     * Advertising
      *
      * @Route("/advertising", name="advertising_page")
      * @Method("GET")
@@ -64,7 +64,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Main page
+     * Internet shop site
      *
      * @Route("/shop", name="shop_page")
      * @Method("GET")
@@ -72,11 +72,16 @@ class DefaultController extends Controller
      */
     public function shopAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $articles = $em->getRepository('AdminBundle:Article')->findForPath(array(2),3);
+
+        return array(
+            'articles' => $articles,
+        );
     }
 
     /**
-     * Main page
+     * Simple site
      *
      * @Route("/vizitka", name="vizitka_page")
      * @Method("GET")
@@ -84,11 +89,16 @@ class DefaultController extends Controller
      */
     public function vizitkaAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $articles = $em->getRepository('AdminBundle:Article')->findForPath(array(1),3);
+
+        return array(
+            'articles' => $articles,
+        );
     }
 
     /**
-     * Main page
+     * Corp site
      *
      * @Route("/corp", name="corp_page")
      * @Method("GET")
@@ -96,11 +106,16 @@ class DefaultController extends Controller
      */
     public function corpAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $articles = $em->getRepository('AdminBundle:Article')->findForPath(array(3),3);
+
+        return array(
+            'articles' => $articles,
+        );
     }
 
     /**
-     * Main page
+     * Landing site
      *
      * @Route("/landing", name="landing_page")
      * @Method("GET")
@@ -108,11 +123,16 @@ class DefaultController extends Controller
      */
     public function landingAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $articles = $em->getRepository('AdminBundle:Article')->findForPath(array(4),3);
+
+        return array(
+            'articles' => $articles,
+        );
     }
 
     /**
-     * Main page
+     * Promotion
      *
      * @Route("/promotion", name="promotion_page")
      * @Method("GET")
@@ -148,7 +168,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Main page
+     * Completed sites
      *
      * @Route("/gotovie", name="gotovie_page")
      * @Method("GET")
@@ -160,7 +180,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Main page
+     * Support
      *
      * @Route("/support", name="support_page")
      * @Method("GET")
@@ -170,4 +190,5 @@ class DefaultController extends Controller
     {
         return array();
     }
+
 }

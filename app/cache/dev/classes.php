@@ -2476,6 +2476,36 @@ return array($controller, $method);
 }
 namespace Symfony\Component\Security\Http
 {
+use Symfony\Component\HttpFoundation\Request;
+interface AccessMapInterface
+{
+public function getPatterns(Request $request);
+}
+}
+namespace Symfony\Component\Security\Http
+{
+use Symfony\Component\HttpFoundation\RequestMatcherInterface;
+use Symfony\Component\HttpFoundation\Request;
+class AccessMap implements AccessMapInterface
+{
+private $map = array();
+public function add(RequestMatcherInterface $requestMatcher, array $attributes = array(), $channel = null)
+{
+$this->map[] = array($requestMatcher, $attributes, $channel);
+}
+public function getPatterns(Request $request)
+{
+foreach ($this->map as $elements) {
+if (null === $elements[0] || $elements[0]->matches($request)) {
+return array($elements[1], $elements[2]);
+}
+}
+return array(null, null);
+}
+}
+}
+namespace Symfony\Component\Security\Http
+{
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\FinishRequestEvent;
@@ -3016,7 +3046,7 @@ namespace
 {
 class Twig_Environment
 {
-const VERSION ='1.18.0';
+const VERSION ='1.18.1';
 protected $charset;
 protected $loader;
 protected $debug;
@@ -4049,7 +4079,7 @@ return http_build_query($url,'','&');
 }
 return rawurlencode($url);
 }
-if (version_compare(PHP_VERSION,'5.3.0','<')) {
+if (PHP_VERSION_ID < 50300) {
 function twig_jsonencode_filter($value, $options = 0)
 {
 if ($value instanceof Twig_Markup) {
@@ -4089,7 +4119,7 @@ if ($item instanceof Traversable) {
 if ($item instanceof IteratorAggregate) {
 $item = $item->getIterator();
 }
-if ($start >= 0 && $length >= 0) {
+if ($start >= 0 && $length >= 0 && $item instanceof Iterator) {
 try {
 return iterator_to_array(new LimitIterator($item, $start, $length === null ? -1 : $length), $preserveKeys);
 } catch (OutOfBoundsException $exception) {
@@ -4273,7 +4303,7 @@ $string = twig_convert_encoding($string, $charset,'UTF-8');
 }
 return $string;
 case'url':
-if (PHP_VERSION <'5.3.0') {
+if (PHP_VERSION_ID < 50300) {
 return str_replace('%7E','~', rawurlencode($string));
 }
 return rawurlencode($string);
@@ -4629,7 +4659,7 @@ if ($parent instanceof Twig_Template) {
 return $this->parents[$parent->getTemplateName()] = $parent;
 }
 if (!isset($this->parents[$parent])) {
-$this->parents[$parent] = $this->env->loadTemplate($parent);
+$this->parents[$parent] = $this->loadTemplate($parent);
 }
 } catch (Twig_Error_Loader $e) {
 $e->setTemplateFile(null);
@@ -4701,6 +4731,26 @@ return isset($this->blocks[(string) $name]);
 public function getBlockNames()
 {
 return array_keys($this->blocks);
+}
+protected function loadTemplate($template, $templateName = null, $line = null, $index = null)
+{
+try {
+if (is_array($template)) {
+return $this->env->resolveTemplate($template);
+}
+if ($template instanceof Twig_Template) {
+return $template;
+}
+return $this->env->loadTemplate($template, $index);
+} catch (Twig_Error $e) {
+$e->setTemplateFile($templateName ? $templateName : $this->getTemplateName());
+if (!$line) {
+$e->guess();
+} else {
+$e->setTemplateLine($line);
+}
+throw $e;
+}
 }
 public function getBlocks()
 {
@@ -6486,10 +6536,10 @@ if (false === $written) {
 throw new \RuntimeException(sprintf('Unable to write cached file to: %s', $tempfile));
 }
 if (false === rename($tempfile, $path)) {
+@unlink($tempfile);
 throw new \RuntimeException(sprintf('Unable to rename %s to %s', $tempfile, $path));
 }
 @chmod($path, 0666 & ~umask());
-@unlink($tempfile);
 }
 public function getClassAnnotation(\ReflectionClass $class, $annotationName)
 {
@@ -6660,7 +6710,6 @@ public function getEntityManagerForClass($class);
 }
 namespace Doctrine\Common\Persistence
 {
-use Doctrine\Common\Persistence\ManagerRegistry;
 abstract class AbstractManagerRegistry implements ManagerRegistry
 {
 private $name;
@@ -6727,7 +6776,7 @@ return $this->getService($this->managers[$name]);
 public function getManagerForClass($class)
 {
 if (strpos($class,':') !== false) {
-list($namespaceAlias, $simpleClassName) = explode(':', $class);
+list($namespaceAlias, $simpleClassName) = explode(':', $class, 2);
 $class = $this->getAliasNamespace($namespaceAlias) .'\\'. $simpleClassName;
 }
 $proxyClass = new \ReflectionClass($class);
@@ -7443,7 +7492,8 @@ $response->setVary($configuration->getVary());
 }
 if ($configuration->isPublic()) {
 $response->setPublic();
-} else {
+}
+if ($configuration->isPrivate()) {
 $response->setPrivate();
 }
 if (isset($this->lastModifiedDates[$request])) {

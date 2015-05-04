@@ -28,6 +28,7 @@
     'assets/vendor/fancybox/source/helpers/jquery.fancybox-thumbs.js'
     'assets/vendor/Blueprints/HorizontalSlideOutMenu/js/modernizr.custom.js'
     'assets/vendor/Blueprints/HorizontalSlideOutMenu/js/cbpHorizontalSlideOutMenu.min.js'
+    'assets/vendor/bootstrap-validator-master/js/validator.js'
     'assets/vendor/maskedinput/jquery.maskedinput.js'
     'assets/vendor/quicksand/jquery.quicksand.js/jquery.quicksand.js'
     'assets/vendor/quicksand/quicksandpaginated.jquery.js'
@@ -45,7 +46,7 @@
             <div class="container_user">
                 <ul class="list-unstyled list-inline">
                     <li class="withHref">
-                        <a class="item-menu" href="#" title="Сайт в рассрочку">
+                        <a class="item-menu" href="{{ path('installments_page') }}" title="Сайт в рассрочку">
                             Сайт в рассрочку
                         </a>
                     </li>
@@ -72,7 +73,7 @@
                 </div>
                 <div class="header-block block-phone vcard">
                     <p class="phone"><span>(4922)</span> 60-02-32</p>
-                    <a href="#" title="Выбор города">г.Владимир</a>
+                    <a  href="#" title="Выбор города" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Город выбран автоматически">г.Владимир</a>
                 </div>
                 <div class="header-block block-reg">
                     <img src="{{ asset('assets/img/lock.png')}}" alt="Клиентам" title="Клиентам"/>
@@ -98,24 +99,24 @@
 
                         <div class="open-close-menu"></div>
                         <li class="withImage">
-                            <a class="withImage" href="#" title="colornew.ru"><img
+                            <a class="withImage" href="{{ path('main_page') }}" title="colornew.ru"><img
                                         src="{{ asset('assets/img/logo.png')}}" alt="colornew.ru" title="colornew.ru"/></a>
                         </li>
                         <li>
                             <a href="#" title="Создание сайтов">Создание сайтов</a>
                             <ul class="cbp-hssubmenu">
-                                <li><a href="#" class="withImage" title="Сайт визитка"><img
+                                <li><a href="{{ path('vizitka_page') }}" class="withImage" title="Сайт визитка"><img
                                                 src="{{ asset('assets/img/sayt-vizitka.png')}}" alt="Сайт визитка"
                                                 title="Сайт визитка"/><span>Сайт-визитка</span></a></li>
-                                <li><a href="#" class="withImage" title="Интернет-магазин"><img
+                                <li><a href="{{ path('shop_page') }}" class="withImage" title="Интернет-магазин"><img
                                                 src="{{ asset('assets/img/internet-magazin.png')}}"
                                                 alt="Интернет-магазин"
                                                 title="Интернет-магазин"/><span>Интернет-магазин</span></a></li>
-                                <li><a href="#" class="withImage" title="Корпоративный сайт"><img
+                                <li><a href="{{ path('corp_page') }}" class="withImage" title="Корпоративный сайт"><img
                                                 src="{{ asset('assets/img/korporativnyy_sayt.png')}}"
                                                 alt="Корпоративный сайт" title="Корпоративный сайт"/><span>Корпоративный сайт</span></a>
                                 </li>
-                                <li><a href="#" class="withImage" title="Landing-page"><img
+                                <li><a href="{{ path('landing_page') }}" class="withImage" title="Landing-page"><img
                                                 src="{{ asset('assets/img/landing-page.png')}}" alt="Landing-page"
                                                 title="Landing-page"/><span>Landing-page</span></a></li>
                                 <li><a href="#" class="withImage" title="Продвижение с гарантией"><span>Продвижение с гарантией</span></a><a
@@ -130,22 +131,22 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" title="Продвижение сайтов">Продвижение сайтов</a>
+                            <a href="{{ path('promotion_page') }}" title="Продвижение сайтов">Продвижение сайтов</a>
                             <ul class="cbp-hssubmenu">
                                 <img src="{{ jpegoptim('assets/img/banners/prodvizheniye_raketa.jpg')}}" alt="Продвижение сайтов"
                                      title="Продвижение сайтов"/>
-                                <li><a href="#" title="Контекстная реклама">Контекстная реклама</a></li>
+                                <li><a href="{{ path('advertising_page') }}" title="Контекстная реклама">Контекстная реклама</a></li>
                                 <li><a href="#" title="SEO продвижение">SEO продвижение</a></li>
-                                <li><a href="#" title="Продвижение в соц.сетях">Продвижение в соц.сетях</a></li>
+                                <li><a href="{{ path('social_page') }}" title="Продвижение в соц.сетях">Продвижение в соц.сетях</a></li>
                                 <li><a href="#" title="При заказе продвижения СКИДКИ ДО 50%" class="withImage"><span
                                                 style="top: 20px;">при заказе продвижения</span><span
                                                 style="font-size: 23px; top: 42px;">СКИДКИ ДО 50%</span></a><a href="#"
                                                                                                                class="btn-podrobnee">Узнать
                                         подробнее</a></li>
-                                <li><a href="#" title="Сайт в рассрочку" class="withImage"><span
+                                <li><a href="{{ path('installments_page') }}" title="Сайт в рассрочку" class="withImage"><span
                                                 style="top: 20px; color: #fff;">Сайт в рассрочку</span><span
                                                 style="font-size: 23px; top: 40px; color: #fff;">Почему это выгодно?</span></a><a
-                                            href="#" class="btn-podrobnee">Узнать подробнее</a></li>
+                                            href="{{ path('installments_page') }}" class="btn-podrobnee">Узнать подробнее</a></li>
                             </ul>
                             <ul class="cbp-hssubmenu-small">
                                 <li><a href="#" title="Контекстная реклама">Контекстная реклама</a></li>
@@ -153,7 +154,7 @@
                                 <li><a href="#" title="Продвижение в соц.сетях">Продвижение в соц.сетях</a></li>
                                 <li><a href="#" title="При заказе продвижения СКИДКИ ДО 50%">При заказе продвижения
                                         СКИДКИ ДО 50%</a></li>
-                                <li><a href="#" title="Сайт в рассрочку">Сайт в рассрочку. Почему это выгодно?</a></li>
+                                <li><a href="{{ path('installments_page') }}" title="Сайт в рассрочку">Сайт в рассрочку. Почему это выгодно?</a></li>
                             </ul>
                         </li>
                         <li>

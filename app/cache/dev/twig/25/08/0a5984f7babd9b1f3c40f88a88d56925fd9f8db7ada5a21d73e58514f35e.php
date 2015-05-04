@@ -8,15 +8,7 @@ class __TwigTemplate_25080a5984f7babd9b1f3c40f88a88d56925fd9f8db7ada5a21d73e5851
         parent::__construct($env);
 
         // line 1
-        try {
-            $this->parent = $this->env->loadTemplate("default/index.html.twig");
-        } catch (Twig_Error_Loader $e) {
-            $e->setTemplateFile($this->getTemplateName());
-            $e->setTemplateLine(1);
-
-            throw $e;
-        }
-
+        $this->parent = $this->loadTemplate("default/index.html.twig", "AppBundle:Default:contact.html.twig", 1);
         $this->blocks = array(
             'content' => array($this, 'block_content'),
             'banner' => array($this, 'block_banner'),
@@ -197,6 +189,6 @@ class __TwigTemplate_25080a5984f7babd9b1f3c40f88a88d56925fd9f8db7ada5a21d73e5851
 
     public function getDebugInfo()
     {
-        return array (  171 => 109,  154 => 95,  139 => 82,  136 => 81,  92 => 40,  54 => 4,  51 => 3,  47 => 81,  44 => 80,  41 => 3,  38 => 2,  11 => 1,);
+        return array (  163 => 109,  146 => 95,  131 => 82,  128 => 81,  84 => 40,  46 => 4,  43 => 3,  39 => 81,  36 => 80,  33 => 3,  30 => 2,  11 => 1,);
     }
 }

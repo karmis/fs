@@ -8,15 +8,7 @@ class __TwigTemplate_433574b43f954476a1df96444c40030e2a3babe1545839c1f2149fce9c0
         parent::__construct($env);
 
         // line 1
-        try {
-            $this->parent = $this->env->loadTemplate("@WebProfiler/Profiler/layout.html.twig");
-        } catch (Twig_Error_Loader $e) {
-            $e->setTemplateFile($this->getTemplateName());
-            $e->setTemplateLine(1);
-
-            throw $e;
-        }
-
+        $this->parent = $this->loadTemplate("@WebProfiler/Profiler/layout.html.twig", "WebProfilerBundle:Profiler:results.html.twig", 1);
         $this->blocks = array(
             'panel' => array($this, 'block_panel'),
         );
@@ -116,6 +108,6 @@ class __TwigTemplate_433574b43f954476a1df96444c40030e2a3babe1545839c1f2149fce9c0
 
     public function getDebugInfo()
     {
-        return array (  103 => 34,  97 => 30,  92 => 27,  83 => 24,  79 => 23,  75 => 22,  71 => 21,  65 => 20,  62 => 19,  58 => 18,  45 => 7,  43 => 6,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  95 => 34,  89 => 30,  84 => 27,  75 => 24,  71 => 23,  67 => 22,  63 => 21,  57 => 20,  54 => 19,  50 => 18,  37 => 7,  35 => 6,  31 => 4,  28 => 3,  11 => 1,);
     }
 }

@@ -8,15 +8,7 @@ class __TwigTemplate_da82dc71ec7db830355d78ac33afa261adbea96208ed0b23825d7de0fb8
         parent::__construct($env);
 
         // line 1
-        try {
-            $this->parent = $this->env->loadTemplate("SensioDistributionBundle::Configurator/layout.html.twig");
-        } catch (Twig_Error_Loader $e) {
-            $e->setTemplateFile($this->getTemplateName());
-            $e->setTemplateLine(1);
-
-            throw $e;
-        }
-
+        $this->parent = $this->loadTemplate("SensioDistributionBundle::Configurator/layout.html.twig", "SensioDistributionBundle:Configurator/Step:secret.html.twig", 1);
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
@@ -50,7 +42,7 @@ class __TwigTemplate_da82dc71ec7db830355d78ac33afa261adbea96208ed0b23825d7de0fb8
     <div class=\"step\">
         ";
         // line 9
-        $this->env->loadTemplate("SensioDistributionBundle::Configurator/steps.html.twig")->display(array_merge($context, array("index" => (isset($context["index"]) ? $context["index"] : $this->getContext($context, "index")), "count" => (isset($context["count"]) ? $context["count"] : $this->getContext($context, "count")))));
+        $this->loadTemplate("SensioDistributionBundle::Configurator/steps.html.twig", "SensioDistributionBundle:Configurator/Step:secret.html.twig", 9)->display(array_merge($context, array("index" => (isset($context["index"]) ? $context["index"] : $this->getContext($context, "index")), "count" => (isset($context["count"]) ? $context["count"] : $this->getContext($context, "count")))));
         // line 10
         echo "
         <h1>Global Secret</h1>
@@ -138,6 +130,6 @@ class __TwigTemplate_da82dc71ec7db830355d78ac33afa261adbea96208ed0b23825d7de0fb8
 
     public function getDebugInfo()
     {
-        return array (  97 => 35,  89 => 30,  77 => 21,  72 => 19,  67 => 17,  62 => 15,  55 => 10,  53 => 9,  49 => 7,  46 => 6,  43 => 5,  37 => 3,  11 => 1,);
+        return array (  89 => 35,  81 => 30,  69 => 21,  64 => 19,  59 => 17,  54 => 15,  47 => 10,  45 => 9,  41 => 7,  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
     }
 }

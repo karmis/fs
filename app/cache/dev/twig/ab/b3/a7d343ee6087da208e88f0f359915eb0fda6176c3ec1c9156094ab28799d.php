@@ -8,15 +8,7 @@ class __TwigTemplate_abb3a7d343ee6087da208e88f0f359915eb0fda6176c3ec1c9156094ab2
         parent::__construct($env);
 
         // line 1
-        try {
-            $this->parent = $this->env->loadTemplate("default/index.html.twig");
-        } catch (Twig_Error_Loader $e) {
-            $e->setTemplateFile($this->getTemplateName());
-            $e->setTemplateLine(1);
-
-            throw $e;
-        }
-
+        $this->parent = $this->loadTemplate("default/index.html.twig", "AppBundle:Default:shop.html.twig", 1);
         $this->blocks = array(
             'content' => array($this, 'block_content'),
         );
@@ -492,58 +484,10 @@ class __TwigTemplate_abb3a7d343ee6087da208e88f0f359915eb0fda6176c3ec1c9156094ab2
     </div>
     <!--~~~~~~~~~~~~~~~~~/annotations_all~~~~~~~~~~~~~~~~~-->
     <!--~~~~~~~~~~~~~~~~~blog~~~~~~~~~~~~~~~~~-->
-    <div class=\"blog container\">
-        <h2>Статьи по этой теме</h2>
-        <p class=\"h2-dop\">Также вы можете прочитать <a href=\"#\" title=\"Прочитать все статьи\">все статьи</a></p>
-        <div class=\"row\">
-            <div class=\"col-md-4\">
-                <div>
-                    <img src=\"";
-        // line 339
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/img/blog/skype.jpg"), "html", null, true);
-        echo "\" class=\"blog_img\"/>
-                    <p class=\"blog_title\">Удобство удаленного общения</p>
-                    <p class=\"blog_description\">Современные технологии позволяют общаться на расстоянии. Это очень удобно и в нашей сфере. Данная статья рассказывает…</p>
-                    <img src=\"";
-        // line 342
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/img/time.png"), "html", null, true);
-        echo "\" class=\"time_ico\"/><span class=\"blog_date\"> 30.03.2015</span>
-                    <a href=\"#\">Подробнее</a>
-                </div>
-            </div>
-            <div class=\"col-md-4 visible-lg visible-md\">
-                <div>
-                    <img src=\"";
-        // line 348
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/img/blog/skype.jpg"), "html", null, true);
-        echo "\" class=\"blog_img\"/>
-                    <p class=\"blog_title\">Удобство удаленного общения</p>
-                    <p class=\"blog_description\">Современные технологии позволяют общаться на расстоянии. Это очень удобно и в нашей сфере. Данная статья рассказывает…</p>
-                    <img src=\"";
-        // line 351
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/img/time.png"), "html", null, true);
-        echo "\" class=\"time_ico\"/><span class=\"blog_date\"> 30.03.2015</span>
-                    <a href=\"#\">Подробнее</a>
-                </div>
-            </div>
-            <div class=\"col-md-4 visible-lg visible-md\">
-                <div>
-                    <img src=\"";
-        // line 357
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/img/blog/skype.jpg"), "html", null, true);
-        echo "\" class=\"blog_img\"/>
-                    <p class=\"blog_title\">Удобство удаленного общения</p>
-                    <p class=\"blog_description\">Современные технологии позволяют общаться на расстоянии. Это очень удобно и в нашей сфере. Данная статья рассказывает…</p>
-                    <img src=\"";
-        // line 360
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/img/time.png"), "html", null, true);
-        echo "\" class=\"time_ico\"/><span class=\"blog_date\"> 30.03.2015</span>
-                    <a href=\"#\">Подробнее</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    ";
+        // line 333
+        echo twig_include($this->env, $context, "AppBundle:Article:preview_list.html.twig", array("entities" => (isset($context["articles"]) ? $context["articles"] : $this->getContext($context, "articles"))));
+        echo "
     <!--~~~~~~~~~~~~~~~~~/blog~~~~~~~~~~~~~~~~~-->
     <!--~~~~~~~~~~~~~~~~~begin_promotion~~~~~~~~~~~~~~~~~-->
     <div class=\"begin_promotion\">
@@ -567,6 +511,6 @@ class __TwigTemplate_abb3a7d343ee6087da208e88f0f359915eb0fda6176c3ec1c9156094ab2
 
     public function getDebugInfo()
     {
-        return array (  539 => 360,  533 => 357,  524 => 351,  518 => 348,  509 => 342,  503 => 339,  476 => 315,  472 => 314,  468 => 313,  454 => 302,  446 => 297,  439 => 293,  432 => 289,  426 => 286,  422 => 285,  418 => 284,  414 => 283,  392 => 264,  388 => 263,  384 => 262,  373 => 254,  369 => 253,  365 => 252,  361 => 251,  357 => 250,  353 => 249,  344 => 243,  339 => 241,  335 => 240,  331 => 239,  327 => 238,  323 => 237,  319 => 236,  311 => 231,  306 => 229,  302 => 228,  298 => 227,  294 => 226,  290 => 225,  286 => 224,  280 => 221,  276 => 220,  272 => 219,  268 => 218,  264 => 217,  260 => 216,  207 => 166,  146 => 108,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  489 => 333,  468 => 315,  464 => 314,  460 => 313,  446 => 302,  438 => 297,  431 => 293,  424 => 289,  418 => 286,  414 => 285,  410 => 284,  406 => 283,  384 => 264,  380 => 263,  376 => 262,  365 => 254,  361 => 253,  357 => 252,  353 => 251,  349 => 250,  345 => 249,  336 => 243,  331 => 241,  327 => 240,  323 => 239,  319 => 238,  315 => 237,  311 => 236,  303 => 231,  298 => 229,  294 => 228,  290 => 227,  286 => 226,  282 => 225,  278 => 224,  272 => 221,  268 => 220,  264 => 219,  260 => 218,  256 => 217,  252 => 216,  199 => 166,  138 => 108,  31 => 3,  28 => 2,  11 => 1,);
     }
 }

@@ -16,7 +16,7 @@ class __TwigTemplate_38e1fff34d462f37b4da8a54bda94869d6fee9f066ce716bdb14ee4b805
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        $this->env->loadTemplate("TwigBundle:Exception:error.xml.twig")->display($context);
+        $this->loadTemplate("TwigBundle:Exception:error.xml.twig", "TwigBundle:Exception:error.rdf.twig", 1)->display($context);
     }
 
     public function getTemplateName()

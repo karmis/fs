@@ -85,7 +85,10 @@ $(function () {
         }
     });
 
-    var menu = new cbpHorizontalSlideOutMenu(document.getElementById('cbp-hsmenu-wrapper'));
+    if($('#cbp-hsmenu-wrapper').length > 0){
+        var menu = new cbpHorizontalSlideOutMenu(document.getElementById('cbp-hsmenu-wrapper'));
+    }
+
 
     if ($('.bxslider').length > 0) {
         $('.bxslider').bxSlider({

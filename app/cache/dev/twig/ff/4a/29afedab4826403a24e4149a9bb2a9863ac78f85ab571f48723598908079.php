@@ -22,7 +22,7 @@ class __TwigTemplate_ff4a29afedab4826403a24e4149a9bb2a9863ac78f85ab571f487235989
             $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["exception"]) ? $context["exception"] : $this->getContext($context, "exception")), "trace", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["trace"]) {
                 // line 3
-                $this->env->loadTemplate("TwigBundle:Exception:trace.txt.twig")->display(array("trace" => $context["trace"]));
+                $this->loadTemplate("TwigBundle:Exception:trace.txt.twig", "TwigBundle:Exception:traces.txt.twig", 3)->display(array("trace" => $context["trace"]));
                 // line 4
                 echo "
 ";

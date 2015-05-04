@@ -26,7 +26,7 @@ class __TwigTemplate_085edb89213a36df9fd30efb486fa9941b7d8367341f18cdd9adc074ee7
             echo "            <trace>
 ";
             // line 4
-            $this->env->loadTemplate("TwigBundle:Exception:trace.txt.twig")->display(array("trace" => $context["trace"]));
+            $this->loadTemplate("TwigBundle:Exception:trace.txt.twig", "TwigBundle:Exception:traces.xml.twig", 4)->display(array("trace" => $context["trace"]));
             // line 5
             echo "
             </trace>

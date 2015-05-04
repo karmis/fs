@@ -324,40 +324,7 @@
     </div>
     <!--~~~~~~~~~~~~~~~~~/annotations_all~~~~~~~~~~~~~~~~~-->
     <!--~~~~~~~~~~~~~~~~~blog~~~~~~~~~~~~~~~~~-->
-    <div class="blog container">
-        <h2>Статьи по этой теме</h2>
-        <p class="h2-dop">Также вы можете прочитать <a href="#" title="Прочитать все статьи">все статьи</a></p>
-        <div class="row">
-            <div class="col-md-4">
-                <div>
-                    <img src="{{asset('assets/img/blog/skype.jpg')}}" class="blog_img"/>
-                    <p class="blog_title">Удобство удаленного общения</p>
-                    <p class="blog_description">Современные технологии позволяют общаться на расстоянии. Это очень удобно и в нашей сфере. Данная статья рассказывает…</p>
-                    <img src="{{asset('assets/img/time.png')}}" class="time_ico"/><span class="blog_date"> 30.03.2015</span>
-                    <a href="#">Подробнее</a>
-                </div>
-            </div>
-            <div class="col-md-4 visible-lg visible-md">
-                <div>
-                    <img src="{{asset('assets/img/blog/skype.jpg')}}" class="blog_img"/>
-                    <p class="blog_title">Удобство удаленного общения</p>
-                    <p class="blog_description">Современные технологии позволяют общаться на расстоянии. Это очень удобно и в нашей сфере. Данная статья рассказывает…</p>
-                    <img src="{{asset('assets/img/time.png')}}" class="time_ico"/><span class="blog_date"> 30.03.2015</span>
-                    <a href="#">Подробнее</a>
-                </div>
-            </div>
-            <div class="col-md-4 visible-lg visible-md">
-                <div>
-                    <img src="{{asset('assets/img/blog/skype.jpg')}}" class="blog_img"/>
-                    <p class="blog_title">Удобство удаленного общения</p>
-                    <p class="blog_description">Современные технологии позволяют общаться на расстоянии. Это очень удобно и в нашей сфере. Данная статья рассказывает…</p>
-                    <img src="{{asset('assets/img/time.png')}}" class="time_ico"/><span class="blog_date"> 30.03.2015</span>
-                    <a href="#">Подробнее</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    {{ include('AppBundle:Article:preview_list.html.twig', { 'entities': articles }) }}
     <!--~~~~~~~~~~~~~~~~~/blog~~~~~~~~~~~~~~~~~-->
     <!--~~~~~~~~~~~~~~~~~begin_promotion~~~~~~~~~~~~~~~~~-->
     <div class="begin_promotion">

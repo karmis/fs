@@ -39,7 +39,7 @@ class __TwigTemplate_7a5a172fddd0cff13f4da0e245760058bbb1c33796f4b0ce00a3ec8b176
             echo "\">
 ";
             // line 6
-            $this->env->loadTemplate("TwigBundle:Exception:traces.xml.twig")->display(array("exception" => $context["e"]));
+            $this->loadTemplate("TwigBundle:Exception:traces.xml.twig", "TwigBundle:Exception:exception.xml.twig", 6)->display(array("exception" => $context["e"]));
             // line 7
             echo "    </exception>
 ";

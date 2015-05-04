@@ -48,7 +48,7 @@ class __TwigTemplate_0dfefc195d7033a6fcbf73e72f69165ec6c9e3498d462504673c2cce366
             echo "
 ";
             // line 15
-            $this->env->loadTemplate("TwigBundle:Exception:traces.txt.twig")->display(array("exception" => $context["e"]));
+            $this->loadTemplate("TwigBundle:Exception:traces.txt.twig", "TwigBundle:Exception:traces_text.html.twig", 15)->display(array("exception" => $context["e"]));
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['i'], $context['e'], $context['_parent'], $context['loop']);

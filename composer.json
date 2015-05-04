@@ -20,7 +20,15 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0,>=3.0.12",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "liip/imagine-bundle": "^1.2",
+        "jms/serializer-bundle": "^0.13.0",
+        "iphp/filestore-bundle" : "@stable",
+        "genemu/form-bundle": "2.2.*",
+        "knplabs/knp-paginator-bundle": "^2.4",
+        "stfalcon/tinymce-bundle": "dev-master",
+        "stof/doctrine-extensions-bundle": "~1.1@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

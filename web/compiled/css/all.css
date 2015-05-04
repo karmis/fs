@@ -2317,6 +2317,7 @@ h2 > span.s{
   	        box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
   	padding: 10px;
   	position: relative;
+	margin-bottom: 10px;
 }
 .blog .row .col-md-4 div .blog_img{
 	width: 100%;
@@ -2835,7 +2836,7 @@ footer div .withImage:hover img{
 		width: 315px;
 	} 
 	.navbar .cbp-hsmenu > li:nth-of-type(4) .cbp-hssubmenu > li > img{
-		margin-right: 15px;
+		margin-right: 10px;
 	}
 	.navbar .cbp-hsmenu > li:nth-of-type(5) .cbp-hssubmenu > div{
 	  	float: left;
@@ -3350,13 +3351,13 @@ footer div .withImage:hover img{
 	display:block; 
 	height:18px; 
 	width:18px; 
-	background: url(../../../assets/calc/image/checkbox.png) center no-repeat; 
+	background: url(../../../assets/img/calc/checkbox.png) center no-repeat; 
 	position:absolute; 
 	top:3px; 
 	left:-22px;
 }
 .korpus .calc_checkbox input[type=checkbox]:checked + label:after {
-	background: url(../../../assets/calc/image/checkbox_checked.png) center no-repeat;
+	background: url(../../../assets/img/calc/checkbox_checked.png) center no-repeat;
 }
 .korpus .calc_radio {   		
 	position:relative; 
@@ -3370,13 +3371,13 @@ footer div .withImage:hover img{
 	display:block; 
 	height:20px; 
 	width:18px; 
-	background: url(../../../assets/calc/image/radio.png) center no-repeat; 
+	background: url(../../../assets/img/calc/radio.png) center no-repeat; 
 	position:absolute; 
 	top:3px; 
 	left:-22px;
 }
 .korpus .calc_radio input[type=radio]:checked + label:after {  
-	background: url(../../../assets/calc/image/radio_checked.png) center no-repeat;
+	background: url(../../../assets/img/calc/radio_checked.png) center no-repeat;
 }
 .korpus .forma_zakaza{	 
 	display: inline-block; 
@@ -3425,7 +3426,7 @@ input[type=tel], textarea{
 .korpus #zakazat_pryamo_seychas{ 
 	width: 236px; 
 	height: 51px; 
-	background: url(../../../assets/calc/image/zakazat_pryamo_seychas.png); 
+	background: url(../../../assets/img/calc/zakazat_pryamo_seychas.png); 
 	position: relative; 
 	left: 12px; 
 	bottom: -10px; 
@@ -3461,13 +3462,13 @@ input[type=tel], textarea{
 	display:block; 
 	height: 22px; 
 	width: 22px; 
-	background: url(../../../assets/calc/image/checkbox_skidka.png) center no-repeat; 
+	background: url(../../../assets/img/calc/checkbox_skidka.png) center no-repeat; 
 	position:absolute; 
 	top:2px; 
 	left:-28px;
 }
 .korpus .checkbox_skidka input[type=checkbox]:checked + label:after { 
-	background: url(../../../assets/calc/image/checkbox_skidka_checked.png) center no-repeat;
+	background: url(../../../assets/img/calc/checkbox_skidka_checked.png) center no-repeat;
 }
 .korpus #site_vizitka_cena,
 .korpus #internet-magazin_cena,
@@ -3644,7 +3645,7 @@ input[type=tel], textarea{
 .korpus #korparativniy-site_checkbox_spoyler + label:before,
 .korpus #landing-page_checkbox_spoyler + label:before{    
 	content: " "; 
-	background: url(../../../assets/calc/image/progr_logo2.png) left no-repeat; 
+	background: url(../../../assets/img/calc/progr_logo2.png) left no-repeat; 
 	display: inline-block; 
 	width: 55px; 
 	height: 52px; 
@@ -3656,7 +3657,7 @@ input[type=tel], textarea{
 .korpus #internet-magazin_checkbox_spoyler:checked + label:before,
 .korpus #korparativniy-site_checkbox_spoyler:checked + label:before,
 .korpus #landing-page_checkbox_spoyler:checked + label:before{ 
-	background: url(../../../assets/calc/image/progr_logo1.png) left no-repeat;
+	background: url(../../../assets/img/calc/progr_logo1.png) left no-repeat;
 }
 .korpus #site_vizitka_checkbox_spoyler + label:after,
 .korpus #internet-magazin_checkbox_spoyler + label:after,
@@ -3736,7 +3737,7 @@ input[type=tel], textarea{
 }
 .korpus li .item:before{    
 	content: " ";
-  	background: url(../../../assets/calc/image/triangle-5.png) no-repeat;
+  	background: url(../../../assets/img/calc/triangle-5.png) no-repeat;
   	width: 34px;
   	height: 34px;
   	position: absolute;
@@ -4061,4 +4062,8 @@ padding-top: 0px;
 
 #demoSiteBtn {
     padding: 8px;
+}
+
+.entity-item {
+	padding: 5px;
 }

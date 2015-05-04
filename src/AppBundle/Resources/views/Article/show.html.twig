@@ -1,0 +1,26 @@
+{% extends 'default/index.html.twig' %}
+{% block content %}
+    <!--~~~~~~~~~~~~~~~~~content~~~~~~~~~~~~~~~~~-->
+
+    <div class="banner banner_empty">
+        <div class="banner_content"></div>
+    </div>
+    <div class="item blog container">
+        <div class="row">
+            {% if entity.photo != "" %}
+                <img src="{{ entity.photo.path|imagine_filter('article_preview') }}" class="blog_img"/>
+            {% else %}
+                <img src="{{ jpegoptim('assets/img/404.jpg')|imagine_filter('article_preview') }}" class="blog_img"/>
+            {% endif %}
+
+            <p class="blog_title">Удобство удаленного общения</p>
+
+            <p class="blog_description">
+                {{ entity.content|raw}}
+            </p>
+            <img src="{{ asset('assets/img/time.png') }}" class="time_ico"/>
+            <span class="blog_date">{{ entity.updated|date('d.m.Y') }}</span>
+        </div>
+    </div>
+
+{% endblock %}

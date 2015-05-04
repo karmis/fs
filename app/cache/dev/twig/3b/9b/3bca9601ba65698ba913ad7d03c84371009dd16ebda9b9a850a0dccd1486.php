@@ -8,15 +8,7 @@ class __TwigTemplate_3b9b3bca9601ba65698ba913ad7d03c84371009dd16ebda9b9a850a0dcc
         parent::__construct($env);
 
         // line 1
-        try {
-            $this->parent = $this->env->loadTemplate("default/index.html.twig");
-        } catch (Twig_Error_Loader $e) {
-            $e->setTemplateFile($this->getTemplateName());
-            $e->setTemplateLine(1);
-
-            throw $e;
-        }
-
+        $this->parent = $this->loadTemplate("default/index.html.twig", "AppBundle:Default:advertising.html.twig", 1);
         $this->blocks = array(
             'content' => array($this, 'block_content'),
             'banner' => array($this, 'block_banner'),
@@ -469,6 +461,6 @@ class __TwigTemplate_3b9b3bca9601ba65698ba913ad7d03c84371009dd16ebda9b9a850a0dcc
 
     public function getDebugInfo()
     {
-        return array (  427 => 291,  424 => 290,  398 => 267,  373 => 245,  365 => 240,  356 => 234,  349 => 230,  341 => 225,  333 => 220,  328 => 217,  325 => 216,  310 => 204,  307 => 203,  285 => 184,  280 => 182,  267 => 172,  244 => 152,  221 => 132,  198 => 112,  173 => 90,  162 => 82,  151 => 74,  120 => 45,  117 => 44,  79 => 7,  76 => 6,  70 => 322,  68 => 290,  65 => 289,  62 => 216,  60 => 203,  57 => 202,  55 => 44,  51 => 42,  49 => 6,  44 => 3,  41 => 2,  11 => 1,);
+        return array (  419 => 291,  416 => 290,  390 => 267,  365 => 245,  357 => 240,  348 => 234,  341 => 230,  333 => 225,  325 => 220,  320 => 217,  317 => 216,  302 => 204,  299 => 203,  277 => 184,  272 => 182,  259 => 172,  236 => 152,  213 => 132,  190 => 112,  165 => 90,  154 => 82,  143 => 74,  112 => 45,  109 => 44,  71 => 7,  68 => 6,  62 => 322,  60 => 290,  57 => 289,  54 => 216,  52 => 203,  49 => 202,  47 => 44,  43 => 42,  41 => 6,  36 => 3,  33 => 2,  11 => 1,);
     }
 }

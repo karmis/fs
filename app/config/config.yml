@@ -5,7 +5,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -78,3 +78,74 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+#Doctrine Extensions
+stof_doctrine_extensions:
+    default_locale: ru_RU
+    orm:
+        default:
+            timestampable: true
+
+#FOSUser
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: UserBundle\Entity\User
+    group:
+        group_class: UserBundle\Entity\Group
+
+#LiipImagine
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        article_preview:
+            quality: 75
+            filters:
+                thumbnail: { size: [340, 272], mode: outbound }
+# Pagination
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: AppBundle:Pagination:sliding.html.twig
+        sortable: AppBundle:Pagination:sortable_link.html.twig # sort link template
+
+#TinyMCE
+stfalcon_tinymce:
+    include_jquery: false
+    tinymce_jquery: true
+    language: ru
+
+# Upload file
+iphp_file_store:
+    mappings:
+        photo:
+            upload_dir:  %kernel.root_dir%/../web/uploads/articles/images/photos
+            upload_path: /uploads/articles/images/photos/
+            namer:
+                translit: ~
+                propertyPrefix:
+                    params: { use_field_name : true, delimiter: "_" }
+
+genemu_form:
+    date: ~
+    tinymce:
+        enabled: true
+        theme:   advanced
+        script_url: '/tinymce/tiny_mce.js'
+    autocomplete: ~
+    select2:
+        enabled: true
+        configs:
+            placeholder: Выберете значение
+            width: 550
+            allowClear: false
+            minimumInputLength: 0

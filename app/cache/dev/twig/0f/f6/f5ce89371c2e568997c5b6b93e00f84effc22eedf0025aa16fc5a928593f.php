@@ -45,7 +45,7 @@ class __TwigTemplate_0ff6f5ce89371c2e568997c5b6b93e00f84effc22eedf0025aa16fc5a92
         if (twig_length_filter($this->env, $this->getAttribute((isset($context["request"]) ? $context["request"] : $this->getContext($context, "request")), "routeParams", array()))) {
             // line 15
             echo "            ";
-            $this->env->loadTemplate("@WebProfiler/Profiler/table.html.twig")->display(array("data" => $this->getAttribute((isset($context["request"]) ? $context["request"] : $this->getContext($context, "request")), "routeParams", array()), "class" => "inline"));
+            $this->loadTemplate("@WebProfiler/Profiler/table.html.twig", "WebProfilerBundle:Router:panel.html.twig", 15)->display(array("data" => $this->getAttribute((isset($context["request"]) ? $context["request"] : $this->getContext($context, "request")), "routeParams", array()), "class" => "inline"));
             // line 16
             echo "        ";
         } else {

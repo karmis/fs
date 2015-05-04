@@ -8,15 +8,7 @@ class __TwigTemplate_018bb227b062eb51fb6b2695eb7a0239a827862a815cb0512d711294874
         parent::__construct($env);
 
         // line 1
-        try {
-            $this->parent = $this->env->loadTemplate("default/index.html.twig");
-        } catch (Twig_Error_Loader $e) {
-            $e->setTemplateFile($this->getTemplateName());
-            $e->setTemplateLine(1);
-
-            throw $e;
-        }
-
+        $this->parent = $this->loadTemplate("default/index.html.twig", "AppBundle:Default:support.html.twig", 1);
         $this->blocks = array(
             'content' => array($this, 'block_content'),
         );
@@ -145,6 +137,6 @@ class __TwigTemplate_018bb227b062eb51fb6b2695eb7a0239a827862a815cb0512d711294874
 
     public function getDebugInfo()
     {
-        return array (  120 => 64,  107 => 54,  94 => 44,  83 => 36,  78 => 34,  73 => 32,  68 => 30,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  112 => 64,  99 => 54,  86 => 44,  75 => 36,  70 => 34,  65 => 32,  60 => 30,  31 => 3,  28 => 2,  11 => 1,);
     }
 }

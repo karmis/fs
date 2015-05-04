@@ -8,15 +8,7 @@ class __TwigTemplate_49037403056ecddd0d8ced66720b698aa8386f92bbd251fdfcdd2afe8c4
         parent::__construct($env);
 
         // line 1
-        try {
-            $this->parent = $this->env->loadTemplate("SensioDistributionBundle::Configurator/layout.html.twig");
-        } catch (Twig_Error_Loader $e) {
-            $e->setTemplateFile($this->getTemplateName());
-            $e->setTemplateLine(1);
-
-            throw $e;
-        }
-
+        $this->parent = $this->loadTemplate("SensioDistributionBundle::Configurator/layout.html.twig", "SensioDistributionBundle:Configurator/Step:doctrine.html.twig", 1);
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
@@ -50,7 +42,7 @@ class __TwigTemplate_49037403056ecddd0d8ced66720b698aa8386f92bbd251fdfcdd2afe8c4
     <div class=\"step\">
         ";
         // line 9
-        $this->env->loadTemplate("SensioDistributionBundle::Configurator/steps.html.twig")->display(array_merge($context, array("index" => (isset($context["index"]) ? $context["index"] : $this->getContext($context, "index")), "count" => (isset($context["count"]) ? $context["count"] : $this->getContext($context, "count")))));
+        $this->loadTemplate("SensioDistributionBundle::Configurator/steps.html.twig", "SensioDistributionBundle:Configurator/Step:doctrine.html.twig", 9)->display(array_merge($context, array("index" => (isset($context["index"]) ? $context["index"] : $this->getContext($context, "index")), "count" => (isset($context["count"]) ? $context["count"] : $this->getContext($context, "count")))));
         // line 10
         echo "
         <h1>Configure your Database</h1>
@@ -125,6 +117,6 @@ class __TwigTemplate_49037403056ecddd0d8ced66720b698aa8386f92bbd251fdfcdd2afe8c4
 
     public function getDebugInfo()
     {
-        return array (  96 => 28,  90 => 25,  86 => 24,  80 => 21,  76 => 20,  72 => 19,  67 => 17,  62 => 15,  55 => 10,  53 => 9,  49 => 7,  46 => 6,  43 => 5,  37 => 3,  11 => 1,);
+        return array (  88 => 28,  82 => 25,  78 => 24,  72 => 21,  68 => 20,  64 => 19,  59 => 17,  54 => 15,  47 => 10,  45 => 9,  41 => 7,  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
     }
 }

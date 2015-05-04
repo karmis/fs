@@ -1,0 +1,39 @@
+{% extends 'default/index.html.twig' %}
+{% block content %}
+    <!--~~~~~~~~~~~~~~~~~content~~~~~~~~~~~~~~~~~-->
+
+    <div class="banner banner_empty">
+        <div class="banner_content"></div>
+    </div>
+    <div class="list blog container">
+        <div class="row">
+            {% if entities is defined and entities|length > 0 %}
+                {% for entity in entities %}
+                    <div class="col-md-4">
+                        <div class="entity-item">
+                            {% if entity.photo != "" %}
+                                <img src="{{ entity.photo.path|imagine_filter('article_preview') }}" class="blog_img"/>
+                            {% else %}
+                                <img src="{{ jpegoptim('assets/img/404.jpg')|imagine_filter('article_preview') }}" class="blog_img"/>
+                            {% endif %}
+
+                            <p class="blog_title">{{ entity.caption|truncate(50) }}</p>
+
+                            <p class="blog_description">
+                                {{ entity.annotation|truncate(150) }}
+                            </p>
+                            <img src="{{ asset('assets/img/time.png') }}" class="time_ico"/>
+                            <span class="blog_date">{{ entity.updated|date('d.m.Y') }}</span>
+                            <a href="{{ path('article_show', {id:entity.id}) }}">Подробнее</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="row">
+                    <div class="center-block">Не найдено ни одной статьи</div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
