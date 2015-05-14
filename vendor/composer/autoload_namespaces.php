@@ -41,5 +41,5 @@ return array(
     'Doctrine\\Bundle\\DoctrineCacheBundle' => array($vendorDir . '/doctrine/doctrine-cache-bundle'),
     'Behat\\Transliterator' => array($vendorDir . '/behat/transliterator/src'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
-    '' => array($baseDir . '/src'),
+    '' => array($baseDir . '/src', $vendorDir . '/maxmind/geoip/src'),
 );

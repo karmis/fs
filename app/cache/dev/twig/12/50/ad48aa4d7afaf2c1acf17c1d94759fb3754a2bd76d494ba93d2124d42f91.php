@@ -31,7 +31,7 @@ class __TwigTemplate_1250ad48aa4d7afaf2c1acf17c1d94759fb3754a2bd76d494ba93d2124d
     {
         // line 4
         echo "    ";
-        if ($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "user", array())) {
+        if ($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "tokenClass", array())) {
             // line 5
             echo "        ";
             $context["color_code"] = ((($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "enabled", array()) && $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "authenticated", array()))) ? ("green") : ("yellow"));
@@ -55,7 +55,7 @@ class __TwigTemplate_1250ad48aa4d7afaf2c1acf17c1d94759fb3754a2bd76d494ba93d2124d
         ob_start();
         // line 12
         echo "        ";
-        if ($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "user", array())) {
+        if ($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "tokenClass", array())) {
             // line 13
             echo "            <div class=\"sf-toolbar-info-piece\">
                 <b>Logged in as</b>
@@ -144,7 +144,7 @@ class __TwigTemplate_1250ad48aa4d7afaf2c1acf17c1d94759fb3754a2bd76d494ba93d2124d
         echo "    <h2>Security</h2>
     ";
         // line 50
-        if ($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "user", array())) {
+        if ($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "tokenClass", array())) {
             // line 51
             echo "        <table>
             <tr>

@@ -1731,7 +1731,7 @@ $this->sortListeners($eventName);
 }
 return $this->sorted[$eventName];
 }
-foreach (array_keys($this->listeners) as $eventName) {
+foreach ($this->listeners as $eventName => $eventListeners) {
 if (!isset($this->sorted[$eventName])) {
 $this->sortListeners($eventName);
 }
@@ -1856,7 +1856,7 @@ return parent::hasListeners($eventName);
 public function getListeners($eventName = null)
 {
 if (null === $eventName) {
-foreach (array_keys($this->listenerIds) as $serviceEventName) {
+foreach ($this->listenerIds as $serviceEventName => $args) {
 $this->lazyLoad($serviceEventName);
 }
 } else {

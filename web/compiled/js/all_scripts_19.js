@@ -27,6 +27,8 @@ $(function () {
     });
 //////////////menu-origin///////////
 
+    $("[data-toggle=popover]").popover({html:true});
+
     //$(document).on('blur', '.cbp-hsitem-open', function () {
     //    $(this).removeClass('cbp-hsitem-open');
     //    $(this).attr('data-open', '');

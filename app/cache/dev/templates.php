@@ -148,6 +148,7 @@
   'AppBundle:Article:preview_list.html.twig' => '/server/www/colornew.dev/www/src/AppBundle/Resources/views/Article/preview_list.html.twig',
   'AppBundle:Article:show.html.twig' => '/server/www/colornew.dev/www/src/AppBundle/Resources/views/Article/show.html.twig',
   'AppBundle:Article:index.html.twig' => '/server/www/colornew.dev/www/src/AppBundle/Resources/views/Article/index.html.twig',
+  'AppBundle:Email:orderFromCalc.html.twig' => '/server/www/colornew.dev/www/src/AppBundle/Resources/views/Email/orderFromCalc.html.twig',
   'AppBundle:Pagination:sortable_link.html.twig' => '/server/www/colornew.dev/www/src/AppBundle/Resources/views/Pagination/sortable_link.html.twig',
   'AppBundle:Pagination:sliding.html.twig' => '/server/www/colornew.dev/www/src/AppBundle/Resources/views/Pagination/sliding.html.twig',
   'AppBundle:Default:shop.html.twig' => '/server/www/colornew.dev/www/src/AppBundle/Resources/views/Default/shop.html.twig',

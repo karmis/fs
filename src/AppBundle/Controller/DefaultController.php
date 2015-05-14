@@ -20,9 +20,20 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $articles = $em->getRepository('AdminBundle:Article')->findForPath(null,3);
+        $ip = $ip = $this->container->get('request')->getClientIp();
 
+        $sxGeo = $this->get('sx.geoip');
+        $city = $sxGeo->get('1176.122.64.24');
+        if(!$city){
+            $cityMarker = 'global';
+        } else {
+            $cityMarker = $city['city']['name_en'];
+        }
+//        $this->get('session')->set('loginUserId', $user['user_id']);
         return array(
             'articles' => $articles,
+            'city' => $city,
+            'cityMarker' => $cityMarker
         );
     }
 

@@ -54,7 +54,7 @@ class __TwigTemplate_f10036e0bd1918ba87b751aa56e5f54ad365a8bfd328867136f44d42fa9
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        echo "Welcome!";
+        echo "Colornew";
     }
 
     // line 6

@@ -4,7 +4,7 @@
     <parameter key="kernel.root_dir">/server/www/colornew.dev/www/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.name">ap_</parameter>
+    <parameter key="kernel.name">app</parameter>
     <parameter key="kernel.cache_dir">/server/www/colornew.dev/www/app/cache/dev</parameter>
     <parameter key="kernel.logs_dir">/server/www/colornew.dev/www/app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
@@ -24,6 +24,7 @@
       <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
       <parameter key="StfalconTinymceBundle">Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle</parameter>
       <parameter key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</parameter>
+      <parameter key="BSSypexGeoBundle">BS\SypexGeoBundle\BSSypexGeoBundle</parameter>
       <parameter key="UserBundle">UserBundle\UserBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="AdminBundle">AdminBundle\AdminBundle</parameter>
@@ -44,7 +45,8 @@
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
-    <parameter key="locale">en</parameter>
+    <parameter key="locale">ru</parameter>
+    <parameter key="sxgeoip_base">/server/www/colornew.dev/www/app/../web/SxGeoIp/SxGeoCity.dat</parameter>
     <parameter key="secret">6966e3b510fd2b92e5be930260b8af41f50b4727</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
@@ -98,7 +100,7 @@
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
     <parameter key="kernel.trusted_proxies" type="collection"/>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">ru</parameter>
     <parameter key="session.class">Symfony\Component\HttpFoundation\Session\Session</parameter>
     <parameter key="session.flashbag.class">Symfony\Component\HttpFoundation\Session\Flash\FlashBag</parameter>
     <parameter key="session.attribute_bag.class">Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag</parameter>
@@ -997,7 +999,7 @@
     </service>
     <service id="locale_listener" class="Symfony\Component\HttpKernel\EventListener\LocaleListener">
       <tag name="kernel.event_subscriber"/>
-      <argument>en</argument>
+      <argument>ru</argument>
       <argument type="service" id="router" on-invalid="ignore"/>
       <argument type="service" id="request_stack"/>
     </service>
@@ -3238,7 +3240,7 @@
       <tag name="monolog.logger" channel="php"/>
       <argument></argument>
       <argument type="service" id="monolog.logger.php" on-invalid="null"/>
-      <argument></argument>
+      <argument>null</argument>
       <argument>null</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -3465,7 +3467,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5546e93c3d50c</argument>
+            <argument>55551fc93cc71</argument>
           </service>
         </argument>
       </argument>
@@ -3744,7 +3746,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5546e93c3d50c</argument>
+            <argument>55551fc93cc71</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -4515,7 +4517,7 @@
       <argument type="service" id="fos_user.user_manager"/>
     </service>
     <service id="fos_user.security.login_manager" class="FOS\UserBundle\Security\LoginManager">
-      <argument type="service" id="security.context"/>
+      <argument type="service" id="security.token_storage"/>
       <argument type="service" id="security.user_checker"/>
       <argument type="service" id="security.authentication.session_strategy"/>
       <argument type="service" id="service_container"/>
@@ -5630,11 +5632,15 @@
       </argument>
       <argument>Stof\DoctrineExtensionsBundle\Uploadable\UploadedFileInfo</argument>
     </service>
+    <service id="sx.geoip" class="BS\SypexGeoBundle\Service\SxGeo">
+      <argument type="service" id="kernel"/>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
       <argument>null</argument>
       <argument>UTF-8</argument>
+      <argument type="service" id="request_stack"/>
     </service>
     <service id="debug.dump_listener" class="Symfony\Component\HttpKernel\EventListener\DumpListener">
       <tag name="kernel.event_subscriber"/>
@@ -6186,6 +6192,7 @@
                       <argument key="Knp\Bundle\PaginatorBundle">/server/www/colornew.dev/www/vendor/knplabs/knp-paginator-bundle/Knp/Bundle/PaginatorBundle/Resources/config/serializer</argument>
                       <argument key="Stfalcon\Bundle\TinymceBundle">/server/www/colornew.dev/www/vendor/stfalcon/tinymce-bundle/Stfalcon/Bundle/TinymceBundle/Resources/config/serializer</argument>
                       <argument key="Stof\DoctrineExtensionsBundle">/server/www/colornew.dev/www/vendor/stof/doctrine-extensions-bundle/Resources/config/serializer</argument>
+                      <argument key="BS\SypexGeoBundle">/server/www/colornew.dev/www/src/BS/SypexGeoBundle/Resources/config/serializer</argument>
                       <argument key="UserBundle">/server/www/colornew.dev/www/src/UserBundle/Resources/config/serializer</argument>
                       <argument key="AppBundle">/server/www/colornew.dev/www/src/AppBundle/Resources/config/serializer</argument>
                       <argument key="AdminBundle">/server/www/colornew.dev/www/src/AdminBundle/Resources/config/serializer</argument>
@@ -6219,6 +6226,7 @@
                       <argument key="Knp\Bundle\PaginatorBundle">/server/www/colornew.dev/www/vendor/knplabs/knp-paginator-bundle/Knp/Bundle/PaginatorBundle/Resources/config/serializer</argument>
                       <argument key="Stfalcon\Bundle\TinymceBundle">/server/www/colornew.dev/www/vendor/stfalcon/tinymce-bundle/Stfalcon/Bundle/TinymceBundle/Resources/config/serializer</argument>
                       <argument key="Stof\DoctrineExtensionsBundle">/server/www/colornew.dev/www/vendor/stof/doctrine-extensions-bundle/Resources/config/serializer</argument>
+                      <argument key="BS\SypexGeoBundle">/server/www/colornew.dev/www/src/BS/SypexGeoBundle/Resources/config/serializer</argument>
                       <argument key="UserBundle">/server/www/colornew.dev/www/src/UserBundle/Resources/config/serializer</argument>
                       <argument key="AppBundle">/server/www/colornew.dev/www/src/AppBundle/Resources/config/serializer</argument>
                       <argument key="AdminBundle">/server/www/colornew.dev/www/src/AdminBundle/Resources/config/serializer</argument>
@@ -6252,6 +6260,7 @@
                       <argument key="Knp\Bundle\PaginatorBundle">/server/www/colornew.dev/www/vendor/knplabs/knp-paginator-bundle/Knp/Bundle/PaginatorBundle/Resources/config/serializer</argument>
                       <argument key="Stfalcon\Bundle\TinymceBundle">/server/www/colornew.dev/www/vendor/stfalcon/tinymce-bundle/Stfalcon/Bundle/TinymceBundle/Resources/config/serializer</argument>
                       <argument key="Stof\DoctrineExtensionsBundle">/server/www/colornew.dev/www/vendor/stof/doctrine-extensions-bundle/Resources/config/serializer</argument>
+                      <argument key="BS\SypexGeoBundle">/server/www/colornew.dev/www/src/BS/SypexGeoBundle/Resources/config/serializer</argument>
                       <argument key="UserBundle">/server/www/colornew.dev/www/src/UserBundle/Resources/config/serializer</argument>
                       <argument key="AppBundle">/server/www/colornew.dev/www/src/AppBundle/Resources/config/serializer</argument>
                       <argument key="AdminBundle">/server/www/colornew.dev/www/src/AdminBundle/Resources/config/serializer</argument>

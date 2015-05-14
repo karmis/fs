@@ -217,7 +217,7 @@ class __TwigTemplate_faac5090b24d195a561d411142074230aa711ec7ec2df389eb48bb9096c
         // line 198
         if (array_key_exists("excluded_ajax_paths", $context)) {
             // line 199
-            echo "            if (window.XMLHttpRequest && XMLHttpRequest.addEventListener) {
+            echo "            if (window.XMLHttpRequest && XMLHttpRequest.prototype.addEventListener) {
                 var proxied = XMLHttpRequest.prototype.open;
 
                 XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {

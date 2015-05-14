@@ -72,8 +72,27 @@
                     </a>
                 </div>
                 <div class="header-block block-phone vcard">
-                    <p class="phone"><span>(4922)</span> 60-02-32</p>
-                    <a  href="#" title="Выбор города" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Город выбран автоматически">г.Владимир</a>
+                    {% set phoneNumberText =  "<span>8(800)</span> 80 80 80"  %}
+                    {% if cityMarker == 'Vladimir' %}
+                        {% set phoneNumberText =  "<span>(4922)</span> 60-02-32"  %}
+                    {% endif %}
+                    <p class="phone">
+                        {{ phoneNumberText|raw }}
+                    </p>
+                    <a
+                            href="#"
+                            title="Выбор города"
+                            data-container="body"
+                            data-toggle="popover"
+                            data-placement="bottom"
+                            data-content="Empty">
+                        {{ city.city.name_ru|default('Другие города') }}
+                    </a>
+                    {#<div class="panel_angle city">#}
+                        {#<div>Это имя свободно! Зарезервируйте его, пока не занял кто-то другой!<br>Получите#}
+                            {#доменное имя colornew.ru бесплатно при заказе сайта!<a href="#" title="Заказать доменное имя" class="btn-podrobnee">Заказать</a>#}
+                        {#</div>#}
+                    {#</div>#}
                 </div>
                 <div class="header-block block-reg">
                     <img src="{{ asset('assets/img/lock.png')}}" alt="Клиентам" title="Клиентам"/>

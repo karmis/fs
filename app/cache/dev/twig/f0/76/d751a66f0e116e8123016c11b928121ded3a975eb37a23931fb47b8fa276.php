@@ -29,16 +29,20 @@ class __TwigTemplate_f076d751a66f0e116e8123016c11b928121ded3a975eb37a23931fb47b8
         <input type=\"text\" name=\"ip\" id=\"ip\" value=\"";
         // line 8
         echo twig_escape_filter($this->env, (isset($context["ip"]) ? $context["ip"] : $this->getContext($context, "ip")), "html", null, true);
-        echo "\" placeholder=\"e.g. 127.0.0.1\">
+        echo "\">
         <div class=\"clear-fix\"></div>
         <label for=\"method\">Method</label>
         <select name=\"method\" id=\"method\">
-            ";
+            <option value=\"\"";
         // line 12
+        echo ((("" == (isset($context["method"]) ? $context["method"] : $this->getContext($context, "method")))) ? (" selected=\"selected\"") : (""));
+        echo ">&nbsp;</option>
+            ";
+        // line 13
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable(array(0 => "", 1 => "DELETE", 2 => "GET", 3 => "HEAD", 4 => "PATCH", 5 => "POST", 6 => "PUT"));
+        $context['_seq'] = twig_ensure_traversable(array(0 => "DELETE", 1 => "GET", 2 => "HEAD", 3 => "PATCH", 4 => "POST", 5 => "PUT"));
         foreach ($context['_seq'] as $context["_key"] => $context["m"]) {
-            // line 13
+            // line 14
             echo "                <option";
             echo ((($context["m"] == (isset($context["method"]) ? $context["method"] : $this->getContext($context, "method")))) ? (" selected=\"selected\"") : (""));
             echo ">";
@@ -49,47 +53,41 @@ class __TwigTemplate_f076d751a66f0e116e8123016c11b928121ded3a975eb37a23931fb47b8
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['m'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 15
+        // line 16
         echo "        </select>
         <div class=\"clear-fix\"></div>
         <label for=\"url\">URL</label>
         <input type=\"text\" name=\"url\" id=\"url\" value=\"";
-        // line 18
+        // line 19
         echo twig_escape_filter($this->env, (isset($context["url"]) ? $context["url"] : $this->getContext($context, "url")), "html", null, true);
-        echo "\" placeholder=\"e.g. ";
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["request"]) ? $context["request"] : $this->getContext($context, "request")), "baseUrl", array()), "html", null, true);
         echo "\">
         <div class=\"clear-fix\"></div>
         <label for=\"token\">Token</label>
         <input type=\"text\" name=\"token\" id=\"token\" value=\"";
-        // line 21
+        // line 22
         echo twig_escape_filter($this->env, (isset($context["token"]) ? $context["token"] : $this->getContext($context, "token")), "html", null, true);
-        echo "\" placeholder=\"e.g. 1f321b\">
+        echo "\">
         <div class=\"clear-fix\"></div>
         <label for=\"start\">From</label>
         <input type=\"date\" name=\"start\" id=\"start\" value=\"";
-        // line 24
+        // line 25
         echo twig_escape_filter($this->env, (isset($context["start"]) ? $context["start"] : $this->getContext($context, "start")), "html", null, true);
-        echo "\" placeholder=\"e.g. ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "-2days", "d.m.Y"), "html", null, true);
         echo "\">
         <div class=\"clear-fix\"></div>
         <label for=\"end\">Until</label>
         <input type=\"date\" name=\"end\" id=\"end\" value=\"";
-        // line 27
+        // line 28
         echo twig_escape_filter($this->env, (isset($context["end"]) ? $context["end"] : $this->getContext($context, "end")), "html", null, true);
-        echo "\" placeholder=\"e.g. ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "d.m.Y"), "html", null, true);
         echo "\">
         <div class=\"clear-fix\"></div>
         <label for=\"limit\">Limit</label>
         <select name=\"limit\" id=\"limit\">
             ";
-        // line 31
+        // line 32
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable(array(0 => 10, 1 => 50, 2 => 100));
         foreach ($context['_seq'] as $context["_key"] => $context["l"]) {
-            // line 32
+            // line 33
             echo "                <option";
             echo ((($context["l"] == (isset($context["limit"]) ? $context["limit"] : $this->getContext($context, "limit")))) ? (" selected=\"selected\"") : (""));
             echo ">";
@@ -100,7 +98,7 @@ class __TwigTemplate_f076d751a66f0e116e8123016c11b928121ded3a975eb37a23931fb47b8
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['l'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 35
         echo "        </select>
 
         <button type=\"submit\" class=\"sf-button\">
@@ -128,6 +126,6 @@ class __TwigTemplate_f076d751a66f0e116e8123016c11b928121ded3a975eb37a23931fb47b8
 
     public function getDebugInfo()
     {
-        return array (  104 => 34,  93 => 32,  89 => 31,  80 => 27,  72 => 24,  66 => 21,  58 => 18,  53 => 15,  42 => 13,  38 => 12,  31 => 8,  26 => 6,  19 => 1,);
+        return array (  102 => 35,  91 => 33,  87 => 32,  80 => 28,  74 => 25,  68 => 22,  62 => 19,  57 => 16,  46 => 14,  42 => 13,  38 => 12,  31 => 8,  26 => 6,  19 => 1,);
     }
 }

@@ -227,7 +227,7 @@ class __TwigTemplate_ef38c0e3aa6f97123df6209991069a8c8631a4cc94ff728e941a6342bfb
             for (elem in menuItems) {
                 if (typeof(menuItems[elem].children) !== 'undefined' &&
                     menuItems[elem].children.length > 0) {
-                    child = menuItems[elem].children[0]
+                    child = menuItems[elem].children[0];
 
                     if ('' === child.getAttribute('title') ||
                         null === child.getAttribute('title')) {
