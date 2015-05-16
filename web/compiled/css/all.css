@@ -650,6 +650,7 @@
     font-family: 'MyriadProLight';
     font-size: 18px;
     color: #333;
+    outline: none;
 }
 
 body {
@@ -772,12 +773,12 @@ header .header-block {
     padding: 0 18px;
 }
 
-header .header-block:not(.zvonok) a {
+header .header-block:not(.zvonok) a, .cityItem a {
     height: 21px;
     border-bottom: 1px dashed #aaa;
 }
 
-header .header-block:not(.zvonok) a:hover {
+header .header-block:not(.zvonok) a:hover, .cityItem a:hover {
     border-bottom: 0px dashed #aaa;
 }
 
@@ -2463,12 +2464,12 @@ h2 > span.s {
     background: #fff !important;
 }
 
-.domen input[type=submit] {
+.domen input.submit {
     background: #fff;
     border: 1px dashed #c81414;
     position: absolute;
     left: 834px;
-    bottom: 37px;
+    top: 37px;
     padding: 12px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -2487,7 +2488,7 @@ h2 > span.s {
     transition-duration: .3s;
 }
 
-.domen form {
+.domen #whois-domain-form {
     width: 750px;
     margin: auto;
     padding: 30px 0;
@@ -2496,11 +2497,10 @@ h2 > span.s {
 .domen .result {
     position: absolute;
     left: 730px;
-    bottom: 50px;
-    color: #00B200;
+    top: 49px;
 }
 
-.domen .svoboden, .panel_angle {
+.domen .svoboden, .panel_angle, .domen .zanyat, .domen .error {
     width: 740px;
     -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
@@ -2508,10 +2508,10 @@ h2 > span.s {
     -o-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
     position: absolute;
-    top: 130px;
+    top: 111px;
     padding: 10px 13px !important;
     line-height: 30px;
-    height: 130px;
+    height: 78px;
     background: #fff;
     margin: 4px;
 }
@@ -2521,7 +2521,7 @@ h2 > span.s {
     z-index: 99999;
 }
 
-.domen .svoboden:before, .panel_angle:before {
+.domen .svoboden:before, .panel_angle:before, .domen .zanyat:before, .domen .error:before {
     content: " ";
     display: block;
     background: url(../../../assets/img/triangle-4.png) center no-repeat;
@@ -4619,4 +4619,29 @@ img.site-prev-medium {
 
 .entity-item {
     padding: 5px;
+}
+
+
+.popover-content {
+    padding: 2px 14px;
+}
+
+.color-red {
+    color: #f00 !important;
+}
+
+.color-green {
+    color: #00B200 !important;
+}
+
+.block-hidden-animate {
+    visibility:hidden;
+    opacity:0;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+
+.block-show-animate {
+    visibility:visible;
+    opacity:1;
+    transition-delay:0s;
 }

@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new AppBundle\AppBundle(),
             new AdminBundle\AdminBundle(),
+            new BS\WhoisBundle\BSWhoisBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

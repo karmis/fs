@@ -32,12 +32,19 @@
     'assets/vendor/maskedinput/jquery.maskedinput.js'
     'assets/vendor/quicksand/jquery.quicksand.js/jquery.quicksand.js'
     'assets/vendor/quicksand/quicksandpaginated.jquery.js'
+    'assets/vendor/punycode.js-master/punycode.min.js'
     'assets/vendor/quicksand/qsmain.js'
     'assets/js/calc.js'
     'assets/js/scripts.js'
     output='compiled/js/all.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+
+    <script type="text/javascript">
+        window.ROUTES = {
+            'whois': "{{ path('services_whois') }}"
+        }
+    </script>
 {% endblock js %}
 
 {% block body %}
@@ -72,12 +79,8 @@
                     </a>
                 </div>
                 <div class="header-block block-phone vcard">
-                    {% set phoneNumberText =  "<span>8(800)</span> 80 80 80"  %}
-                    {% if cityMarker == 'Vladimir' %}
-                        {% set phoneNumberText =  "<span>(4922)</span> 60-02-32"  %}
-                    {% endif %}
                     <p class="phone">
-                        {{ phoneNumberText|raw }}
+                        {{ city.phone|raw }}
                     </p>
                     <a
                             href="#"
@@ -85,9 +88,12 @@
                             data-container="body"
                             data-toggle="popover"
                             data-placement="bottom"
-                            data-content="Empty">
-                        {{ city.city.name_ru|default('Другие города') }}
+                            data-content="<div class='cityItem' id='RU-MOW'><a href='{{ path('region_change', {'iso': 'RU-MOW'}) }}'>Москва</a></div><div class='cityItem' id='RU-VLA'><a href='{{ path('region_change', {'iso': 'RU-VLA'}) }}'>Владимир</a></div><div class='cityItem' id='RU-NIZ'><a href='{{ path('region_change', {'iso': 'RU-NIZ'}) }}'>Нижний Новгород</a></div>">
+                        {{ city.name|default('Другие города') }}
                     </a>
+                    <div>
+
+                    </div>
                     {#<div class="panel_angle city">#}
                         {#<div>Это имя свободно! Зарезервируйте его, пока не занял кто-то другой!<br>Получите#}
                             {#доменное имя colornew.ru бесплатно при заказе сайта!<a href="#" title="Заказать доменное имя" class="btn-podrobnee">Заказать</a>#}

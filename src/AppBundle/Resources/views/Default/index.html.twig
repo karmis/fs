@@ -1410,19 +1410,25 @@
 
             <div class="korpus">
                 <div class="container">
-                    <form>
-                        <input type="text" placeholder="КОЛОР-НЬЮ.РФ" required>
+                    <div id="whois-domain-form">
+                        <input type="text" placeholder="КОЛОР-НЬЮ.РФ" id="domain-input-whois" required>
 
-                        <p class="result">Свободен</p>
-                        <input type="submit" class="submit" name="submit" value="Проверить">
+                        <p class="result"></p>
+                        <input type="button" class="submit" name="submit" bs-action="whois" value="Проверить" data-loading-text="Проверяю">
 
-                        <div class="svoboden">Это имя свободно! Зарезервируйте его, пока не занял кто-то другой!<br/>Получите
-                            доменное имя colornew.ru бесплатно при заказе сайта!<a href="#"
-                                                                                   title="Заказать доменное имя"
-                                                                                   class="btn-podrobnee">Заказать</a>
+                        <div class="svoboden block-hidden-animate">
+                            Это имя свободно! Зарезервируйте его, пока не занял кто-то другой!
+                            <br/>Получите это имя бесплатно при заказе сайта!
+                            {#<a href="#" title="Заказать доменное имя" class="btn-podrobnee">Заказать</a>#}
                         </div>
-                        <div class="zanyat"></div>
-                    </form>
+                        <div class="zanyat block-hidden-animate">
+                            Это имя занято! Попробуйте придумать другое доменное имя.
+                        </div>
+
+                        <div class="error block-hidden-animate">
+                            Введенное Вами имя не может быть доменом. Проверьте, не допустили ли Вы ошибку.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

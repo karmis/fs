@@ -1,3 +1,29 @@
+function request(url, data, callbacks, method)
+{
+    if(!callbacks){
+        callbacks = {};
+    }
+
+    if(!callbacks.success){
+        callbacks.success = function(){};
+    }
+
+    if(!callbacks.error){
+        callbacks.error = function(){};
+    }
+    $.ajax({
+        url: url,
+        data: data||{},
+        method: method||'post',
+        complete: function(xhr){
+            callbacks.success(xhr);
+        },
+        error: function(xhr){
+            callbacks.error(xhr);
+        }
+    })
+}
+
 $(function () {
 //////////////fixed_menu///////////
     function nc_scrollMenuFix() {
@@ -182,10 +208,76 @@ $(function () {
 
         }});
     })
+
+    // Whois
+    $('[bs-action="whois"]').click(function(){
+        whoisAction();
+    });
+
+    $('input#domain-input-whois').keyup(function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            whoisAction();
+        }
+    });
 });
 
+
+function whoisAction()
+{
+    var elBusy = $('#whois-domain-form .zanyat');
+    var elAvail = $('#whois-domain-form .svoboden');
+    var elError = $('#whois-domain-form .error');
+    var elBtn = $('#whois-domain-form .submit');
+    var resEl = $('#whois-domain-form .result');
+    elBusy.css({'visibility':'hidden', 'opacity':0});
+    elAvail.css({'visibility':'hidden', 'opacity':0});
+    var domain = $('#domain-input-whois').val().toLowerCase();
+    var msg = "";
+    if(isDomain(domain)){
+        elBtn.button('loading');
+        request(window.ROUTES.whois, {name:punycode.toASCII(domain)}, {
+            success: function(data){
+                if(data.responseJSON){
+                    switch(data.responseJSON.status){
+                        case 'available':
+                            elAvail.css({'visibility':'visible', 'opacity':1});
+                            resEl.removeClass('color-red').addClass('color-green');
+                            resEl.text('Свободен');
+                            break;
+                        case 'busy':
+                            elBusy.css({'visibility':'visible', 'opacity':1});
+                            resEl.removeClass('color-green').addClass('color-red');
+                            resEl.text('Занят');
+                            break;
+                        case 'error':
+                            elError.css({'visibility':'visible', 'opacity':1});
+                            resEl.removeClass('color-green').addClass('color-red');
+                            resEl.text('Неверно');
+                            break;
+                    }
+                }
+
+                elBtn.button('reset');
+            }
+        })
+    } else {
+        elError.css({'visibility':'visible', 'opacity':1});
+        resEl.removeClass('color-green').addClass('color-red');
+        resEl.text('Неверно');
+    }
+}
+
+function isDomain(domain)
+{
+    var patt = new RegExp(/^[a-zа-я0-9]+([\-\.]{1}[a-zа-я0-9]+)*\.[a-zа-я\-]{2,5}(:[0-9]{1,5})?$/i);
+    if(patt.test(domain)) {
+        return true;
+    }
+    return false;
+}
+
 function sendFeed(path, data, success, error) {
-    debugger;
     $('.btn-podrobnee').button('loading');
     $.ajax({
         type:'post',

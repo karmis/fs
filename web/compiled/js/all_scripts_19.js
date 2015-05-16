@@ -1,3 +1,29 @@
+function request(url, data, callbacks, method)
+{
+    if(!callbacks){
+        callbacks = {};
+    }
+
+    if(!callbacks.success){
+        callbacks.success = function(){};
+    }
+
+    if(!callbacks.error){
+        callbacks.error = function(){};
+    }
+    $.ajax({
+        url: url,
+        data: data||{},
+        method: method||'post',
+        complete: function(xhr){
+            callbacks.success(xhr);
+        },
+        error: function(xhr){
+            callbacks.error(xhr);
+        }
+    })
+}
+
 $(function () {
 //////////////fixed_menu///////////
     function nc_scrollMenuFix() {
@@ -182,10 +208,53 @@ $(function () {
 
         }});
     })
+
+    // Whois
+    $('[bs-action="whois"]').click(function(){
+        whoisAction();
+    });
 });
 
+
+function whoisAction()
+{
+    var domain = $('#domain-input-whois').val();
+    var msg = "";
+    if(isDomain(domain)){
+        request(window.ROUTES.whois, {name:domain}, {
+            success: function(data){
+                if(data.responseJSON){
+                    var resEl = $('#whois-domain-form .result');
+                    switch(data.responseJSON.status){
+                        case 'available':
+                            resEl.removeClass('color-red').addClass('color-green');
+                            resEl.text('Свободен');
+                            break;
+                        case 'busy':
+                            resEl.removeClass('color-green').addClass('color-red');
+                            resEl.text('Занят');
+                            break;
+                        case 'error':
+                            break;
+                    }
+                }
+            }
+        })
+    } else {
+        msg = "Доменное имя введено не верно"
+    }
+}
+
+function isDomain(domain)
+{
+    var patt = new RegExp(/^[a-zа-я0-9]+([\-\.]{1}[a-zа-я0-9]+)*\.[a-zа-я\-]{2,5}(:[0-9]{1,5})?$/i);
+    if(patt.test(domain)) {
+        return true;
+    }
+    return false;
+}
+
 function sendFeed(path, data, success, error) {
-    debugger;
     $('.btn-podrobnee').button('loading');
     $.ajax({
         type:'post',

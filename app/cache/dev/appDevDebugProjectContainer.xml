@@ -28,6 +28,7 @@
       <parameter key="UserBundle">UserBundle\UserBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="AdminBundle">AdminBundle\AdminBundle</parameter>
+      <parameter key="BSWhoisBundle">BS\WhoisBundle\BSWhoisBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -47,7 +48,19 @@
     <parameter key="mailer_password">null</parameter>
     <parameter key="locale">ru</parameter>
     <parameter key="sxgeoip_base">/server/www/colornew.dev/www/app/../web/SxGeoIp/SxGeoCity.dat</parameter>
+    <parameter key="json_whois_api_key">66bfda82f337f2aa3009578c7661c6e7</parameter>
     <parameter key="secret">6966e3b510fd2b92e5be930260b8af41f50b4727</parameter>
+    <parameter key="cities_phones" type="collection">
+      <parameter key="RU-NIZ">&lt;span&gt;(831)&lt;/span&gt; 261-34-74</parameter>
+      <parameter key="RU-VLA">&lt;span&gt;(4922)&lt;/span&gt; 60-02-32</parameter>
+      <parameter key="RU-MOW">&lt;span&gt;(499)&lt;/span&gt; 704-38-43</parameter>
+      <parameter key="GLOBAL">&lt;span&gt;(800)&lt;/span&gt; 000 00 00</parameter>
+    </parameter>
+    <parameter key="cities_ip" type="collection">
+      <parameter key="RU-NIZ">109.184.14.163</parameter>
+      <parameter key="RU-VLA">176.122.64.24</parameter>
+      <parameter key="RU-MOW">195.218.132.2</parameter>
+    </parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
     <parameter key="response_listener.class">Symfony\Component\HttpKernel\EventListener\ResponseListener</parameter>
@@ -3467,7 +3480,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>55551fc93cc71</argument>
+            <argument>55570efe458d3</argument>
           </service>
         </argument>
       </argument>
@@ -3746,7 +3759,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>55551fc93cc71</argument>
+            <argument>55570efe458d3</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -5635,6 +5648,9 @@
     <service id="sx.geoip" class="BS\SypexGeoBundle\Service\SxGeo">
       <argument type="service" id="kernel"/>
     </service>
+    <service id="bs.whois" class="BS\WhoisBundle\Service\Whois">
+      <argument type="service" id="kernel"/>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -6196,6 +6212,7 @@
                       <argument key="UserBundle">/server/www/colornew.dev/www/src/UserBundle/Resources/config/serializer</argument>
                       <argument key="AppBundle">/server/www/colornew.dev/www/src/AppBundle/Resources/config/serializer</argument>
                       <argument key="AdminBundle">/server/www/colornew.dev/www/src/AdminBundle/Resources/config/serializer</argument>
+                      <argument key="BS\WhoisBundle">/server/www/colornew.dev/www/src/BS/WhoisBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/server/www/colornew.dev/www/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/server/www/colornew.dev/www/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/server/www/colornew.dev/www/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer</argument>
@@ -6230,6 +6247,7 @@
                       <argument key="UserBundle">/server/www/colornew.dev/www/src/UserBundle/Resources/config/serializer</argument>
                       <argument key="AppBundle">/server/www/colornew.dev/www/src/AppBundle/Resources/config/serializer</argument>
                       <argument key="AdminBundle">/server/www/colornew.dev/www/src/AdminBundle/Resources/config/serializer</argument>
+                      <argument key="BS\WhoisBundle">/server/www/colornew.dev/www/src/BS/WhoisBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/server/www/colornew.dev/www/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/server/www/colornew.dev/www/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/server/www/colornew.dev/www/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer</argument>
@@ -6264,6 +6282,7 @@
                       <argument key="UserBundle">/server/www/colornew.dev/www/src/UserBundle/Resources/config/serializer</argument>
                       <argument key="AppBundle">/server/www/colornew.dev/www/src/AppBundle/Resources/config/serializer</argument>
                       <argument key="AdminBundle">/server/www/colornew.dev/www/src/AdminBundle/Resources/config/serializer</argument>
+                      <argument key="BS\WhoisBundle">/server/www/colornew.dev/www/src/BS/WhoisBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/server/www/colornew.dev/www/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/server/www/colornew.dev/www/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/server/www/colornew.dev/www/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer</argument>
