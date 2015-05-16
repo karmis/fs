@@ -232,6 +232,7 @@ function whoisAction()
     var resEl = $('#whois-domain-form .result');
     elBusy.css({'visibility':'hidden', 'opacity':0});
     elAvail.css({'visibility':'hidden', 'opacity':0});
+    elError.css({'visibility':'hidden', 'opacity':0});
     var domain = $('#domain-input-whois').val().toLowerCase();
     var msg = "";
     if(isDomain(domain)){
