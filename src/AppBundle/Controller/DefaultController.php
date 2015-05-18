@@ -21,95 +21,19 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $city = $this->getDataByIP();
         $articles = $em->getRepository('AdminBundle:Article')->findForPath(null,3);
 
         return array(
             'articles' => $articles,
-            'city' => $city,
-//            'cityMarker' => $cityMarker
         );
     }
 
-    /**
-     * Смена региона
-     *
-     * @Route("/region/change/{iso}", name="region_change")
-     * @Method("GET")
-     */
-    public function changeRegionAction($iso)
-    {
-        $ips =$this->container->getParameter('cities_ip');
-        if(isset($ips[$iso])){
-            $this->getDataByIP($ips[$iso], true);
-        }
 
-
-        return $this->redirectToRoute('main_page');
-    }
-
-    /**
-     * Проверка домена на доступность
-     *
-     * @Route("/services/whois", name="services_whois")
-     * @Method("POST")
-     */
-    public function whoisAction(Request $request)
-    {
-        $whois = $this->get('bs.whois');
-        $domain = $request->request->get('name');
-        if($whois->init($domain)){
-            if($whois->isAvailable()){
-                $answer = array('status'=> 'available');
-            } else {
-                $answer = array('status'=> 'busy');
-            }
-        } else {
-            $answer = array(
-                'status'=> 'error',
-                'detail'=>$whois->getError()
-            );
-        }
-
-        return new JsonResponse($answer);
-    }
-
-    private function getDataByIP($ip = null, $reset = false)
-    {
-        $data = $this->get('session')->get('city');
-        if(!empty($data) && !$reset){
-            return $data;
-        }
-
-        if(empty($ip) || $ip == null){
-            $ip = $ip = $this->container->get('request')->getClientIp();
-        }
-
-        $sxGeo = $this->get('sx.geoip');
-        $data = $sxGeo->getCityFull($ip);
-        if(!empty($data) && count($data) > 0) {
-            $iso = $data['region']['iso'];
-            $city = $data['city']['name_ru'];
-        } else {
-            $iso = "GLOBAL";
-            $city = "";
-        }
-
-        $phone = $this->container->getParameter('cities_phones')[$iso];
-        $data = array(
-            'name' => $city,
-            'phone' => $phone
-        );
-
-        $this->get('session')->set('city', $data);
-
-        return $data;
-    }
 
     /**
      * Contacts
      *
-     * @Route("/contacts", name="contact_page")
+     * @Route("/contacts.html", name="contact_page")
      * @Method("GET")
      * @Template()
      */
@@ -124,7 +48,7 @@ class DefaultController extends Controller
     /**
      * Domains
      *
-     * @Route("/domains", name="domains_page")
+     * @Route("/domains-and-hosting.html", name="domains_page")
      * @Method("GET")
      * @Template()
      */
@@ -148,7 +72,7 @@ class DefaultController extends Controller
     /**
      * Internet shop site
      *
-     * @Route("/shop", name="shop_page")
+     * @Route("/internet-magazin.html", name="shop_page")
      * @Method("GET")
      * @Template()
      */
@@ -165,7 +89,7 @@ class DefaultController extends Controller
     /**
      * Simple site
      *
-     * @Route("/vizitka", name="vizitka_page")
+     * @Route("/site-vizitka.html", name="vizitka_page")
      * @Method("GET")
      * @Template()
      */
@@ -182,7 +106,7 @@ class DefaultController extends Controller
     /**
      * Corp site
      *
-     * @Route("/corp", name="corp_page")
+     * @Route("/korparativniy-site.html", name="corp_page")
      * @Method("GET")
      * @Template()
      */
@@ -199,7 +123,7 @@ class DefaultController extends Controller
     /**
      * Landing site
      *
-     * @Route("/landing", name="landing_page")
+     * @Route("/landing-page.html", name="landing_page")
      * @Method("GET")
      * @Template()
      */
@@ -216,7 +140,7 @@ class DefaultController extends Controller
     /**
      * Promotion
      *
-     * @Route("/promotion", name="promotion_page")
+     * @Route("/promotion-of-sites.html", name="promotion_page")
      * @Method("GET")
      * @Template()
      */
@@ -228,7 +152,7 @@ class DefaultController extends Controller
     /**
      * Main page
      *
-     * @Route("/installments", name="installments_page")
+     * @Route("/site-in-installments.html", name="installments_page")
      * @Method("GET")
      * @Template()
      */
@@ -240,7 +164,7 @@ class DefaultController extends Controller
     /**
      * Main page
      *
-     * @Route("/social", name="social_page")
+     * @Route("/social-networks.html", name="social_page")
      * @Method("GET")
      * @Template()
      */
@@ -264,13 +188,61 @@ class DefaultController extends Controller
     /**
      * Support
      *
-     * @Route("/support", name="support_page")
+     * @Route("/support-of-sites.html", name="support_page")
      * @Method("GET")
      * @Template()
      */
     public function supportAction()
     {
         return array();
+    }
+
+    /**
+     * Completed sites
+     *
+     * @Route("/dontknow", name="dontknow")
+     * @Method("POST")
+     */
+    public function dontKnowAction()
+    {
+        $availables = array(
+            array(
+                'caption' => 'Сайт-визитка',
+                'href' => $this->generateUrl('vizitka_page')
+            ),
+            array(
+                'caption' => 'Корпоративный сайт',
+                'href' => $this->generateUrl('corp_page')
+            ),
+            array(
+                'caption' => 'Landing page',
+                'href' => $this->generateUrl('landing_page')
+            ),
+            array(
+                'caption' => 'Поддержка',
+                'href' => $this->generateUrl('support_page')
+            ),
+            array(
+                'caption' => 'Готовые сайты',
+                'href' => $this->generateUrl('gotovie_page')
+            ),
+            array(
+                'caption' => 'Продвижение в соц. сетях',
+                'href' => $this->generateUrl('social_page')
+            ),
+        );
+
+        $count = 3;
+        $resultArray = array();
+        for($i = 0; $i<=$count;$i++){
+            $index = rand(0, count($availables)-1);
+            $resultArray[] = $availables[$index];
+            unset($availables[$index]);
+            $availables = array_values($availables);
+        }
+
+        return new JsonResponse($resultArray);
+
     }
 
 }

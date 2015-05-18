@@ -31,19 +31,22 @@ class FeedController extends Controller
      */
     public function calcOrderAction(Request $request)
     {
+        $subject = "Заказ из калькулятора";
         $name = $request->request->get('name');
         $tel = $request->request->get('tel');
         $email = $request->request->get('email');
         $siteName = $request->request->get('site_type_name');
         $salePromotion = $request->request->get('checkbox_skidka');
-        if(isset($salePromotion)){
+        $ref = $request->request->get('ref');
+
+        if (isset($salePromotion)) {
             $salePromotionText = 'С продвижением';
         } else {
             $salePromotionText = 'Без продвижения';
         }
         $design = $request->request->get('dizayn');
 
-        switch($design) {
+        switch ($design) {
             case 'gotoviy':
                 $designText = 'Готовый дизайн';
                 break;
@@ -60,6 +63,8 @@ class FeedController extends Controller
         $template = $this->renderView(
             'AppBundle:Email:orderFromCalc.html.twig',
             array(
+                'subject' => $subject,
+                'ref' => $ref,
                 'name' => $name,
                 'tel' => $tel,
                 'email' => $email,
@@ -69,22 +74,116 @@ class FeedController extends Controller
             )
         );
 
-        $this->sendEmail($template);
+        $this->sendEmail($subject, $template);
 
-        $answer = array('answer' => 'ok');
-        return new JsonResponse($answer);
+        return new JsonResponse(array('answer' => 'ok'));
     }
 
-    private function sendEmail($template)
+
+    /**
+     * Заказ обратного звонка
+     *
+     * @Route("/callback", name="feed_call_back")
+     * @Method("POST")
+     */
+    public function callBackAction(Request $request)
+    {
+        $subject = "Заказ обратного звонка";
+        $name = $request->request->get('name');
+        $tel = $request->request->get('tel');
+        $email = $request->request->get('email');
+        $msg = $request->request->get('msg');
+        $ref = $request->request->get('ref');
+
+        $template = $this->renderView(
+            'AppBundle:Email:callBack.html.twig',
+            array(
+                'subject' => $subject,
+                'ref' => $ref,
+                'name' => $name,
+                'tel' => $tel,
+                'email' => $email,
+                'msg' => $msg
+            )
+        );
+
+        $this->sendEmail($subject, $template);
+
+        return new JsonResponse(array('answer' => 'ok'));
+    }
+
+    /**
+     * Заказ консультации
+     *
+     * @Route("/consult", name="feed_consult")
+     * @Method("POST")
+     */
+    public function consultFeedAction(Request $request)
+    {
+        $subject = "Заказ консультации";
+        $name = $request->request->get('name');
+        $tel = $request->request->get('tel');
+        $email = $request->request->get('email');
+        $msg = $request->request->get('msg');
+        $ref = $request->request->get('ref');
+        $consutType = $request->request->get('consuttype');
+        switch ($consutType) {
+            case 'vizitka':
+                $consutTypeText = 'Сайт-визитка';
+                break;
+
+            case 'landing':
+                $consutTypeText = 'Landing';
+                break;
+
+            case 'corp':
+                $consutTypeText = 'Корпоративный';
+                break;
+
+            case 'shop':
+                $consutTypeText = 'Интернет-магазин';
+                break;
+
+            default:
+                $consutTypeText = $consutType;
+                break;
+        }
+
+        $template = $this->renderView(
+            'AppBundle:Email:consult.html.twig',
+            array(
+                'subject' => $subject,
+                'ref' => $ref,
+                'name' => $name,
+                'tel' => $tel,
+                'email' => $email,
+                'msg' => $msg,
+                'consutTypeText' => $consutTypeText
+            )
+        );
+
+        $this->sendEmail($subject, $template);
+
+        return new JsonResponse(array('answer' => 'ok'));
+    }
+
+    private function sendEmail($subject, $template)
     {
         $mailer = $this->get('mailer');
+        $emails = $this->container->getParameter('admin_emails');
+
         $message = $mailer->createMessage()
-            ->setSubject('You have Completed Registration!')
+            ->setSubject($subject)
             ->setFrom('robot@colornew.ru')
-            ->setTo('init.reg@gmail.com')
-            ->setBody($template,'text/html')
-        ;
-        $mailer->send($message);
+            ->setBody($template, 'text/html');
+        if (count($emails) > 0) {
+            foreach ($emails as $email) {
+                $message->setTo($email);
+                $mailer->send($message);
+            }
+        }
+
+
     }
 
 

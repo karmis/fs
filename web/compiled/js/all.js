@@ -1730,7 +1730,7 @@ $(function(){
 
 ////////////  САЙТ-ВИЗИТКА  //////////////
 
-function podschet1(){	
+function podschet1(){
 	$('label[for="site_vizitka_gotoviy"]').on('click', function(){
 		$('#site_vizitka_mini').prop("checked", 1);
 	});
@@ -1740,43 +1740,43 @@ function podschet1(){
 	var cena = 0;
 	var skidka = 0;
 	if ($('#site_vizitka_gotoviy').prop("checked")){
-		$('#site_vizitka_mini').prop("disabled", 0); $('#site_vizitka_mini').removeClass("blocked"); 
+		$('#site_vizitka_mini').prop("disabled", 0); $('#site_vizitka_mini').removeClass("blocked");
 		$('#site_vizitka_standart').prop("disabled", 0); $('#site_vizitka_standart').removeClass("blocked");
 	}
 	if ($('#site_vizitka_individualniy').prop("checked")){
-		$('#site_vizitka_mini').prop("disabled", 1); $('#site_vizitka_mini').addClass("blocked"); 
+		$('#site_vizitka_mini').prop("disabled", 1); $('#site_vizitka_mini').addClass("blocked");
 		$('#site_vizitka_standart').prop("disabled", 1); $('#site_vizitka_standart').addClass("blocked");
 	}
-	
-	
+
+
 	if ($('#site_vizitka_razrabotka_logotipa').prop("checked")) 				{cena += 4990;}				   	//разработка логотипа
-	if ($('#site_vizitka_razrabotka_bannerov').prop("checked") && 
-		($('#site_vizitka_k').val() == 1 || 
+	if ($('#site_vizitka_razrabotka_bannerov').prop("checked") &&
+		($('#site_vizitka_k').val() == 1 ||
 		$('#site_vizitka_k').val() == 2)) 										{cena += 690 * $('#site_vizitka_k').val();} //разработка баннеров (1,2 шт)
-	if ($('#site_vizitka_razrabotka_bannerov').prop("checked") && 
+	if ($('#site_vizitka_razrabotka_bannerov').prop("checked") &&
 		$('#site_vizitka_k').val() > 3 ) 										{cena += 590 * $('#site_vizitka_k').val();}	//разработка баннеров (от 3 шт)
-	if ($('#site_vizitka_gotoviy').prop("checked") &&  
+	if ($('#site_vizitka_gotoviy').prop("checked") &&
 		$('#site_vizitka_mini').prop("checked")) 								{cena += 2390; skidka = 50;		//готовый мини
 																				$('#site_vizitka_gotoviy_mini_dop').removeClass("hidden");
 																				$('#site_vizitka_gotoviy_standart_dop').addClass("hidden");
 																				$('#site_vizitka_gotoviy_rashireniy_dop').addClass("hidden");
 																				$('#site_vizitka_individualniy_rashireniy_dop').addClass("hidden");
 	}
-	if ($('#site_vizitka_gotoviy').prop("checked") &&  
+	if ($('#site_vizitka_gotoviy').prop("checked") &&
 		$('#site_vizitka_standart').prop("checked")) 							{cena += 4450; skidka = 50;		//готовый стандарт
 																				$('#site_vizitka_gotoviy_mini_dop').addClass("hidden");
 																				$('#site_vizitka_gotoviy_standart_dop').removeClass("hidden");
 																				$('#site_vizitka_gotoviy_rashireniy_dop').addClass("hidden");
 																				$('#site_vizitka_individualniy_rashireniy_dop').addClass("hidden");
 	}
-	if ($('#site_vizitka_gotoviy').prop("checked") &&  
+	if ($('#site_vizitka_gotoviy').prop("checked") &&
 		$('#site_vizitka_rashirenniy').prop("checked")) 						{cena += 9990; skidka = 50;		//готовый расширенный
 																				$('#site_vizitka_gotoviy_mini_dop').addClass("hidden");
 																				$('#site_vizitka_gotoviy_standart_dop').addClass("hidden");
 																				$('#site_vizitka_gotoviy_rashireniy_dop').removeClass("hidden");
 																				$('#site_vizitka_individualniy_rashireniy_dop').addClass("hidden");
 	}
-	if ($('#site_vizitka_individualniy').prop("checked") &&  
+	if ($('#site_vizitka_individualniy').prop("checked") &&
 		$('#site_vizitka_rashirenniy').prop("checked")) 						{cena += 33900; skidka = 20;	//индивидуальный расширенный
 																				$('#site_vizitka_gotoviy_mini_dop').addClass("hidden");
 																				$('#site_vizitka_gotoviy_standart_dop').addClass("hidden");
@@ -1794,8 +1794,8 @@ function podschet1(){
 }
 
 ////////////  ИНТЕРНЕТ-МАГАЗИН  //////////////
-	
-function podschet2(){	
+
+function podschet2(){
 	$('label[for="internet-magazin_gotoviy"]').on('click', function(){
 		 $('#internet-magazin_katalog_bez_korzini').prop("checked", 1);
 	});
@@ -1806,20 +1806,20 @@ function podschet2(){
 	var cena = 0;
 	var skidka = 0;
 
-	if ($('#internet-magazin_gotoviy').prop("checked")){ 
+	if ($('#internet-magazin_gotoviy').prop("checked")){
 		$('#internet-magazin_katalog_s_korzinoy').prop("disabled", 0); $('#internet-magazin_katalog_s_korzinoy').removeClass("blocked");
 		$('#internet-magazin_katalog_bez_korzini').prop("disabled", 0); $('#internet-magazin_katalog_bez_korzini').removeClass("blocked");
 	}
 
 	if ($('#internet-magazin_individualniy').prop("checked")){
-		$('#internet-magazin_katalog_bez_korzini').prop("disabled", 1); $('#internet-magazin_katalog_bez_korzini').addClass("blocked"); 
-		$('#internet-magazin_katalog_s_korzinoy').prop("disabled", 1); $('#internet-magazin_katalog_s_korzinoy').addClass("blocked"); 
+		$('#internet-magazin_katalog_bez_korzini').prop("disabled", 1); $('#internet-magazin_katalog_bez_korzini').addClass("blocked");
+		$('#internet-magazin_katalog_s_korzinoy').prop("disabled", 1); $('#internet-magazin_katalog_s_korzinoy').addClass("blocked");
 	}
 	if ($('#internet-magazin_razrabotka_logotipa').prop("checked")) 			{cena += 4990;}				   	//разработка логотипа
-	if ($('#internet-magazin_razrabotka_bannerov').prop("checked") && 
-		($('#internet-magazin_k').val() == 1 || 
+	if ($('#internet-magazin_razrabotka_bannerov').prop("checked") &&
+		($('#internet-magazin_k').val() == 1 ||
 		$('#internet-magazin_k').val() == 2)) 									{cena += 690 * $('#internet-magazin_k').val();} 	//разработка баннеров (1,2 шт)
-	if ($('#internet-magazin_razrabotka_bannerov').prop("checked") && 
+	if ($('#internet-magazin_razrabotka_bannerov').prop("checked") &&
 		$('#internet-magazin_k').val() > 3 ) 									{cena += 590 * $('#internet-magazin_k').val();}	//разработка баннеров (от 3 шт)
 	if ($('#internet-magazin_gotoviy').prop("checked") &&
 		$('#internet-magazin_katalog_bez_korzini').prop("checked"))				{cena += 14950; skidka = 30; 	//готовый каталог без корзины
@@ -1861,10 +1861,10 @@ function podschet3(){
 		$('#korparativniy-site_rashireniy').prop("disabled", 0); $('#korparativniy-site_rashireniy').removeClass("blocked"); $('#korparativniy-site_rashireniy').prop("checked", 1);
 		}
 	if ($('#korparativniy-site_razrabotka_logotipa').prop("checked")) 			{cena += 4990;}				   	//разработка логотипа
-	if ($('#korparativniy-site_razrabotka_bannerov').prop("checked") && 
-		($('#korparativniy-site_k').val() == 1 || 
+	if ($('#korparativniy-site_razrabotka_bannerov').prop("checked") &&
+		($('#korparativniy-site_k').val() == 1 ||
 		$('#korparativniy-site_k').val() == 2)) 								{cena += 690 * $('#korparativniy-site_k').val();} 	//разработка баннеров (1,2 шт)
-	if ($('#korparativniy-site_razrabotka_bannerov').prop("checked") && 
+	if ($('#korparativniy-site_razrabotka_bannerov').prop("checked") &&
 		$('#korparativniy-site_k').val() > 3 ) 									{cena += 590 * $('#korparativniy-site_k').val();}	//разработка баннеров (от 3 шт)
 	if ($('#korparativniy-site_gotoviy').prop("checked") &&
 		$('#korparativniy-site_standart').prop("checked"))						{cena += 11950; skidka = 30; 	//готовый стандарт
@@ -1888,7 +1888,7 @@ function podschet3(){
 
 ////////////  LANDING-PAGE  //////////////
 
-function podschet4(){	
+function podschet4(){
 	var cena = 0;
 	var skidka = 0;
 	if ($('#landing-page_gotoviy').prop("checked")) 							{cena += 6950; skidka = 50; 	//готовый
@@ -1899,16 +1899,16 @@ function podschet4(){
 																				$('#landing-page_gotoviy_dop').addClass("hidden");
 																				$('#landing-page_individualniy_dop').removeClass("hidden");
 	}
-	
-	
+
+
 	if ($('#landing-page_razrabotka_logotipa').prop("checked")) 				{cena += 4990;}				   	//разработка логотипа
-	if ($('#landing-page_razrabotka_bannerov').prop("checked") && 
-		($('#landing-page_k').val() == 1 || 
+	if ($('#landing-page_razrabotka_bannerov').prop("checked") &&
+		($('#landing-page_k').val() == 1 ||
 		$('#landing-page_k').val() == 2)) 										{cena += 690 * $('#landing-page_k').val();} //разработка баннеров (1,2 шт)
-	if ($('#landing-page_razrabotka_bannerov').prop("checked") && 
+	if ($('#landing-page_razrabotka_bannerov').prop("checked") &&
 		$('#landing-page_k').val() > 3 ) 										{cena += 590 * $('#landing-page_k').val();}	//разработка баннеров (от 3 шт)
 	$('#landing-page_skidka').text(skidka);
-	if ($('#landing-page_checkbox_skidka').prop("checked") == 0)				{skidka = 0}	
+	if ($('#landing-page_checkbox_skidka').prop("checked") == 0)				{skidka = 0}
 	skidka = cena * skidka / 100;
 	cena -= Math.round(skidka);
 	cena = Number.prototype.toFixed.call(parseFloat(cena) || 0, 0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
@@ -1926,33 +1926,38 @@ $('form[name="site_vizitka"] *').on('click', podschet1);
 $('form[name="internet-magazin"] *').on('click', podschet2);
 $('form[name="korparativniy-site"] *').on('click', podschet3);
 $('form[name="landing-page"] *').on('click', podschet4);
-function request(url, data, callbacks, method)
-{
-    if(!callbacks){
+// Обертка для асинхронных запросов
+function request(url, data, callbacks, method) {
+    if (!callbacks) {
         callbacks = {};
     }
 
-    if(!callbacks.success){
-        callbacks.success = function(){};
+    if (!callbacks.success) {
+        callbacks.success = function () {
+        };
     }
 
-    if(!callbacks.error){
-        callbacks.error = function(){};
+    if (!callbacks.error) {
+        callbacks.error = function () {
+        };
     }
     $.ajax({
         url: url,
-        data: data||{},
-        method: method||'post',
-        complete: function(xhr){
+        data: data || {},
+        method: method || 'post',
+        complete: function (xhr) {
             callbacks.success(xhr);
         },
-        error: function(xhr){
+        error: function (xhr) {
             callbacks.error(xhr);
         }
     })
 }
 
 $(function () {
+
+    // Set reference for all feedback forms
+    $('[bs-id="form-reference"]').val(window.document.location.href);
 //////////////fixed_menu///////////
     function nc_scrollMenuFix() {
         var num = 90; //number of pixels before modifying styles
@@ -1981,38 +1986,25 @@ $(function () {
     });
 //////////////menu-origin///////////
 
-    $("[data-toggle=popover]").popover({html:true});
-
-    //$(document).on('blur', '.cbp-hsitem-open', function () {
-    //    $(this).removeClass('cbp-hsitem-open');
-    //    $(this).attr('data-open', '');
-    //    $('.cbp-hsmenubg').css({'height': '0'});
-    //});
+    $("[data-toggle=popover]").popover({html: true});
 
 
-    //$('body').on('click', function (e) {
-    //    if ($(e.toElement).parents('nav').length == 0) {
-    //        $('.cbp-hsmenu > li:not(:first-child)').css({'display': 'none'});
-    //    }
-    //
-    //});
-
-
-    if ($('#calculate').length == 1) {
-        var offset = $(".forma_zakaza").offset();
-        var topPadding = 600;
-        $(window).scroll(function () {
-            var scroolL = $(this).scrollTop();
-            if (scroolL <= (650 + $(".calculate").height())) {
-                if (scroolL > (offset.top - 600)) {
-                    $(".forma_zakaza").stop().animate({marginTop: scroolL - offset.top + topPadding});
-                }
-                else {
-                    $(".forma_zakaza").stop().animate({marginTop: 0});
-                }
-            }
-        });
-    }
+    //if ($('#calculate').length == 1) {
+    //    var offset = $(".forma_zakaza").offset();
+    //    var topPadding = $('#calculate').offset().top;
+    //    $(window).scroll(function () {
+    //        debugger;
+    //        var scroolL = $(this).scrollTop();
+    //        if (scroolL <= (topPadding+ $('#calculate').height())) {
+    //            if (scroolL > (offset.top - topPadding)) {
+    //                $(".forma_zakaza").stop().animate({marginTop: (scroolL-topPadding)});
+    //            }
+    //            else {
+    //                $(".forma_zakaza").stop().animate({marginTop: 0});
+    //            }
+    //        }
+    //    });
+    //}
 
 
     $('label[for="read_more"]').on('click', function () {
@@ -2040,7 +2032,7 @@ $(function () {
         }
     });
 
-    if($('#cbp-hsmenu-wrapper').length > 0){
+    if ($('#cbp-hsmenu-wrapper').length > 0) {
         var menu = new cbpHorizontalSlideOutMenu(document.getElementById('cbp-hsmenu-wrapper'));
     }
 
@@ -2130,56 +2122,91 @@ $(function () {
         e.preventDefault();
         var data = $(this).serialize();
         var route = $(this).attr('bs-action');
-        sendFeed(route, data, {success: function(){
+        sendFeed(route, data, {
+            success: function () {
 
-        }, error: function(){
+            }, error: function () {
 
-        }});
-    })
+            }
+        });
+    });
+
+    // Feedback get consult
+    $('[bs-type="getConsult"]').click(function(){
+        $('#consulttypeformfeedback').val($(this).attr('bs-val'));
+    });
 
     // Whois
-    $('[bs-action="whois"]').click(function(){
+    $('[bs-action="whois"]').click(function () {
         whoisAction();
     });
 
+    // Whois Enter
     $('input#domain-input-whois').keyup(function (e) {
         if (e.which == 13) {
             e.preventDefault();
             whoisAction();
         }
     });
+
+    // Select active calc type
+    if($('.calc-type-item').length > 0){
+        $('.calc-type-item').eq(0).prop('checked', true);
+    }
+
+    $('[bs-id="dontknow"]').click(function(){
+        if($('.dontknow').hasClass('cbp-hsitem-open')){
+            return false;
+        }
+        //$('.dontknow .cbp-hssubmenu').hide();
+        //$('.dontknow .cbp-hssubmenu-small').hide();
+       request($(this).attr('bs-action'), {}, {
+           success: function(xhr){
+               var tpl = '';
+               if(xhr.responseJSON.length > 0){
+                   $.each(xhr.responseJSON, function(key, obj){
+                       tpl +=  "<li>"+obj.caption+"<br /><a href='"+obj.href+"'>"+obj.href+"</a>";
+                   });
+                   $('.dontknow ol').html(tpl);
+                   //$('.dontknow .cbp-hssubmenu').show();
+                   //$('.dontknow .cbp-hssubmenu-small').show();
+               }
+           }
+       })
+    });
+
 });
 
 
-function whoisAction()
-{
+function whoisAction() {
     var elBusy = $('#whois-domain-form .zanyat');
     var elAvail = $('#whois-domain-form .svoboden');
     var elError = $('#whois-domain-form .error');
     var elBtn = $('#whois-domain-form .submit');
     var resEl = $('#whois-domain-form .result');
-    elBusy.css({'visibility':'hidden', 'opacity':0});
-    elAvail.css({'visibility':'hidden', 'opacity':0});
+    elBusy.css({'visibility': 'hidden', 'opacity': 0});
+    elAvail.css({'visibility': 'hidden', 'opacity': 0});
+    elError.css({'visibility': 'hidden', 'opacity': 0});
     var domain = $('#domain-input-whois').val().toLowerCase();
     var msg = "";
-    if(isDomain(domain)){
+    if (isDomain(domain)) {
         elBtn.button('loading');
-        request(window.ROUTES.whois, {name:punycode.toASCII(domain)}, {
-            success: function(data){
-                if(data.responseJSON){
-                    switch(data.responseJSON.status){
+        request(window.ROUTES.whois, {name: punycode.toASCII(domain)}, {
+            success: function (data) {
+                if (data.responseJSON) {
+                    switch (data.responseJSON.status) {
                         case 'available':
-                            elAvail.css({'visibility':'visible', 'opacity':1});
+                            elAvail.css({'visibility': 'visible', 'opacity': 1});
                             resEl.removeClass('color-red').addClass('color-green');
                             resEl.text('Свободен');
                             break;
                         case 'busy':
-                            elBusy.css({'visibility':'visible', 'opacity':1});
+                            elBusy.css({'visibility': 'visible', 'opacity': 1});
                             resEl.removeClass('color-green').addClass('color-red');
                             resEl.text('Занят');
                             break;
                         case 'error':
-                            elError.css({'visibility':'visible', 'opacity':1});
+                            elError.css({'visibility': 'visible', 'opacity': 1});
                             resEl.removeClass('color-green').addClass('color-red');
                             resEl.text('Неверно');
                             break;
@@ -2188,18 +2215,17 @@ function whoisAction()
 
                 elBtn.button('reset');
             }
-        })
+        });
     } else {
-        elError.css({'visibility':'visible', 'opacity':1});
+        elError.css({'visibility': 'visible', 'opacity': 1});
         resEl.removeClass('color-green').addClass('color-red');
         resEl.text('Неверно');
     }
 }
 
-function isDomain(domain)
-{
+function isDomain(domain) {
     var patt = new RegExp(/^[a-zа-я0-9]+([\-\.]{1}[a-zа-я0-9]+)*\.[a-zа-я\-]{2,5}(:[0-9]{1,5})?$/i);
-    if(patt.test(domain)) {
+    if (patt.test(domain)) {
         return true;
     }
     return false;
@@ -2208,12 +2234,12 @@ function isDomain(domain)
 function sendFeed(path, data, success, error) {
     $('.btn-podrobnee').button('loading');
     $.ajax({
-        type:'post',
+        type: 'post',
         data: data,
         url: path,
-        complete: function(xhr){
+        complete: function (xhr) {
             $('.btn-podrobnee').button('reset');
-            if(xhr.responseJSON && xhr.responseJSON.answer == 'ok'){
+            if (xhr.responseJSON && xhr.responseJSON.answer == 'ok') {
                 alert('Заявка успешно отправленна. Скоро с вами свяжутся');
             } else {
                 alert('Ошибка при выполнение запроса. Попробуйте позже');

@@ -738,30 +738,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_main_page:
 
-        // region_change
-        if (0 === strpos($pathinfo, '/region/change') && preg_match('#^/region/change/(?P<iso>[^/]++)$#s', $pathinfo, $matches)) {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
-                goto not_region_change;
-            }
-
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'region_change')), array (  '_controller' => 'AppBundle\\Controller\\DefaultController::changeRegionAction',));
-        }
-        not_region_change:
-
-        // services_whois
-        if ($pathinfo === '/services/whois') {
-            if ($this->context->getMethod() != 'POST') {
-                $allow[] = 'POST';
-                goto not_services_whois;
-            }
-
-            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::whoisAction',  '_route' => 'services_whois',);
-        }
-        not_services_whois:
-
         // contact_page
-        if ($pathinfo === '/contacts') {
+        if ($pathinfo === '/contacts.html') {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'HEAD'));
                 goto not_contact_page;
@@ -772,7 +750,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         not_contact_page:
 
         // domains_page
-        if ($pathinfo === '/domains') {
+        if ($pathinfo === '/domains-and-hosting.html') {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'HEAD'));
                 goto not_domains_page;
@@ -794,7 +772,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         not_advertising_page:
 
         // shop_page
-        if ($pathinfo === '/shop') {
+        if ($pathinfo === '/internet-magazin.html') {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'HEAD'));
                 goto not_shop_page;
@@ -805,7 +783,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         not_shop_page:
 
         // vizitka_page
-        if ($pathinfo === '/vizitka') {
+        if ($pathinfo === '/site-vizitka.html') {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'HEAD'));
                 goto not_vizitka_page;
@@ -816,7 +794,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         not_vizitka_page:
 
         // corp_page
-        if ($pathinfo === '/corp') {
+        if ($pathinfo === '/korparativniy-site.html') {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'HEAD'));
                 goto not_corp_page;
@@ -827,7 +805,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         not_corp_page:
 
         // landing_page
-        if ($pathinfo === '/landing') {
+        if ($pathinfo === '/landing-page.html') {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'HEAD'));
                 goto not_landing_page;
@@ -838,7 +816,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         not_landing_page:
 
         // promotion_page
-        if ($pathinfo === '/promotion') {
+        if ($pathinfo === '/promotion-of-sites.html') {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'HEAD'));
                 goto not_promotion_page;
@@ -848,27 +826,30 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_promotion_page:
 
-        // installments_page
-        if ($pathinfo === '/installments') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
-                goto not_installments_page;
+        if (0 === strpos($pathinfo, '/s')) {
+            // installments_page
+            if ($pathinfo === '/site-in-installments.html') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_installments_page;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::installmentsAction',  '_route' => 'installments_page',);
             }
+            not_installments_page:
 
-            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::installmentsAction',  '_route' => 'installments_page',);
-        }
-        not_installments_page:
+            // social_page
+            if ($pathinfo === '/social-networks.html') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_social_page;
+                }
 
-        // social_page
-        if ($pathinfo === '/social') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
-                goto not_social_page;
+                return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::socialAction',  '_route' => 'social_page',);
             }
+            not_social_page:
 
-            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::socialAction',  '_route' => 'social_page',);
         }
-        not_social_page:
 
         // gotovie_page
         if ($pathinfo === '/gotovie') {
@@ -882,7 +863,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         not_gotovie_page:
 
         // support_page
-        if ($pathinfo === '/support') {
+        if ($pathinfo === '/support-of-sites.html') {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'HEAD'));
                 goto not_support_page;
@@ -892,16 +873,94 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_support_page:
 
-        // feed_calc_order
-        if ($pathinfo === '/feed/orderFromCalc') {
+        // dontknow
+        if ($pathinfo === '/dontknow') {
             if ($this->context->getMethod() != 'POST') {
                 $allow[] = 'POST';
-                goto not_feed_calc_order;
+                goto not_dontknow;
             }
 
-            return array (  '_controller' => 'AppBundle\\Controller\\FeedController::calcOrderAction',  '_route' => 'feed_calc_order',);
+            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::dontKnowAction',  '_route' => 'dontknow',);
         }
-        not_feed_calc_order:
+        not_dontknow:
+
+        if (0 === strpos($pathinfo, '/feed')) {
+            // feed_calc_order
+            if ($pathinfo === '/feed/orderFromCalc') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_feed_calc_order;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\FeedController::calcOrderAction',  '_route' => 'feed_calc_order',);
+            }
+            not_feed_calc_order:
+
+            if (0 === strpos($pathinfo, '/feed/c')) {
+                // feed_call_back
+                if ($pathinfo === '/feed/callback') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_feed_call_back;
+                    }
+
+                    return array (  '_controller' => 'AppBundle\\Controller\\FeedController::callBackAction',  '_route' => 'feed_call_back',);
+                }
+                not_feed_call_back:
+
+                // feed_consult
+                if ($pathinfo === '/feed/consult') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_feed_consult;
+                    }
+
+                    return array (  '_controller' => 'AppBundle\\Controller\\FeedController::consultFeedAction',  '_route' => 'feed_consult',);
+                }
+                not_feed_consult:
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/service')) {
+            // services_whois
+            if ($pathinfo === '/service/whois') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_services_whois;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\ServiceController::whoisAction',  '_route' => 'services_whois',);
+            }
+            not_services_whois:
+
+            if (0 === strpos($pathinfo, '/service/geoip')) {
+                // service_geoip
+                if ($pathinfo === '/service/geoip') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_service_geoip;
+                    }
+
+                    return array (  '_controller' => 'AppBundle\\Controller\\ServiceController::geoipAction',  '_route' => 'service_geoip',);
+                }
+                not_service_geoip:
+
+                // service_geoip_region_change
+                if (0 === strpos($pathinfo, '/service/geoip/region/change') && preg_match('#^/service/geoip/region/change/(?P<iso>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_service_geoip_region_change;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'service_geoip_region_change')), array (  '_controller' => 'AppBundle\\Controller\\ServiceController::changeRegionAction',));
+                }
+                not_service_geoip_region_change:
+
+            }
+
+        }
 
         if (0 === strpos($pathinfo, '/media/cache/resolve')) {
             // liip_imagine_filter_runtime

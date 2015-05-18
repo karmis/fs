@@ -14,12 +14,13 @@ parameters:
     sxgeoip_base: '%kernel.root_dir%/../web/SxGeoIp/SxGeoCity.dat'
     json_whois_api_key: 66bfda82f337f2aa3009578c7661c6e7
     secret: 6966e3b510fd2b92e5be930260b8af41f50b4727
-    cities_phones:
+    cities_phones: # Номера  телефонов для разных городов
         RU-NIZ: "<span>(831)</span> 261-34-74" # Нижний Новгород
         RU-VLA: "<span>(4922)</span> 60-02-32" # Владимир
         RU-MOW: "<span>(499)</span> 704-38-43" # Москва
         GLOBAL: "<span>(800)</span> 000 00 00" # Остальные
-    cities_ip:
+    cities_ip: # IP  адреса для разных городов
         RU-NIZ: "109.184.14.163" # Нижний Новгород
         RU-VLA: "176.122.64.24" # Владимир
         RU-MOW: "195.218.132.2" # Москва
+    admin_emails: ['init.reg@gmail.com', 'support@colornew.ru'] # Контактные emails администраторов
